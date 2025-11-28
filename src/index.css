@@ -8,4 +8,5 @@ body {
   margin: 0;
   padding: 0;
   background-color: oklch(27.4% 0.006 286.033);
+  font-family: 'Lato', sans-serif;
 }

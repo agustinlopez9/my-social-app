@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import Post from "./Post/Post";
 import type { Post as PostType } from "mockData";
 
@@ -6,14 +7,16 @@ interface UserPostProps {
 }
 
 const UserPost = ({ post }: UserPostProps) => {
-  const { avatar, title, name, content, createdAt } = post;
+  const { id, avatar, title, name, content, createdAt } = post;
 
   return (
-    <Post>
-      <Post.Header avatar={avatar} name={name} createdAt={createdAt} />
-      <Post.Content title={title} content={content} />
-      <Post.Footer />
-    </Post>
+    <Link to={`/post/${id}`} className="block no-underline cursor-pointer m-2">
+      <Post>
+        <Post.Header avatar={avatar} name={name} createdAt={createdAt} />
+        <Post.Content title={title} content={content} />
+        <Post.Footer />
+      </Post>
+    </Link>
   );
 };
 

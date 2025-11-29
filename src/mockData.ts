@@ -62,9 +62,9 @@ export const posts: Post[] = [
 export const comments: Comment[] = [
   {
     id: 1,
-    createdAt: "2025-11-26T10:45:00Z",
+    createdAt: "2025-11-29T19:25:00Z",
     name: "Pedro Sánchez",
-    avatar: "https://i.pravatar.cc/150?img=6",
+    avatar: "https://i.pravatar.cc/150?img=2",
     content: "¡Felicitaciones! React es increíble una vez que le agarras el ritmo. ¿Ya probaste hooks?",
     parentId: 1,
   },

@@ -1,6 +1,7 @@
 import { FaEllipsisV, FaPen, FaTrash, FaFlag, FaEyeSlash } from "react-icons/fa";
 import Avatar from "components/ui/Avatar";
 import Dropdown from "components/ui/Dropdown";
+import { getRelativeTimeFromDate } from "utils";
 
 interface PostHeaderProps {
   avatar: string;
@@ -15,8 +16,9 @@ const PostHeader = ({ avatar, name, createdAt }: PostHeaderProps) => {
         className="my-2"
         src={avatar}
         title={name}
-        subtitle={new Date(createdAt).toLocaleString()}
+        subtitle={getRelativeTimeFromDate(createdAt)}
         size="small"
+        direction="column"
       />
       <Dropdown
         options={[

@@ -6,7 +6,7 @@ import UserPost from "components/UserPost";
 const MainView = () => {
   return (
     <>
-      <div className="flex flex-col mx-auto max-w-3xl mt-4 mb-8">
+      <div className="flex flex-col">
         <NewPost />
         <Filters />
         {posts.map((post) => (

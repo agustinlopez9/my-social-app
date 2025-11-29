@@ -1,10 +1,12 @@
+import type React from "react";
 import type { ImgHTMLAttributes } from "react";
 
-type AvatarSize = "small" | "medium" | "large";
-
+type AvatarSize = "smaller" | "small" | "medium" | "large";
+type AvatarDirection = "row" | "column";
 interface AvatarProps extends ImgHTMLAttributes<HTMLImageElement> {
   size?: AvatarSize;
   title?: string;
+  direction?: AvatarDirection;
   subtitle?: string;
   showFallback?: boolean;
 }
@@ -13,6 +15,7 @@ const Avatar = ({
   className = "",
   size = "medium",
   title,
+  direction = "row",
   subtitle,
   showFallback = true,
   src,
@@ -21,7 +24,7 @@ const Avatar = ({
 }: AvatarProps) => {
   const getFallbackSrc = () => {
     return `https://ui-avatars.com/api/?name=${encodeURIComponent(
-      title || alt
+      title || alt,
     )}&background=random&color=fff`;
   };
 
@@ -32,7 +35,6 @@ const Avatar = ({
     }
   };
 
-  // Use fallback if no src is provided
   const imageSrc = src || (showFallback ? getFallbackSrc() : undefined);
 
   return (
@@ -45,9 +47,15 @@ const Avatar = ({
         {...props}
       />
       {(title || subtitle) && (
-        <div className="flex flex-col text-sm">
-          {title && <p className="text-white font-medium">{title}</p>}
-          {subtitle && <p className="text-xs text-zinc-400">{subtitle}</p>}
+        <div
+          className={`flex ${direction === "row" ? "flex-row items-center" : "flex-col justify-start"} text-white font-medium text-sm`}
+        >
+          <p className="text-white font-medium">{title}</p>
+          {subtitle && (
+            <span className={`block text-zinc-400 text-xs ${direction === "row" ? "ml-1" : ""}`}>
+              {direction === "row" ? "•" : ""} {subtitle}
+            </span>
+          )}
         </div>
       )}
     </div>

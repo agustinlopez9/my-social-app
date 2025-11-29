@@ -10,3 +10,50 @@ body {
   background-color: oklch(27.4% 0.006 286.033);
   font-family: 'Lato', sans-serif;
 }
+
+/* Avatar Styles */
+
+.avatar {
+  @apply w-10 h-10 rounded-full object-cover;
+}
+
+.avatar-small {
+  @apply w-8 h-8;
+}
+
+.avatar-medium {
+  @apply w-10 h-10;
+}
+
+.avatar-large {
+  @apply w-12 h-12;
+}
+
+/* Button Styles */
+.btn {
+  @apply cursor-pointer rounded-md transition-all duration-200 flex items-center justify-center gap-2 font-medium;
+}
+
+.btn-primary {
+  @apply bg-orange-600 text-white hover:bg-orange-700;
+}
+
+.btn-secondary {
+  @apply bg-zinc-700 text-white hover:bg-orange-600;
+}
+
+.btn-outlined {
+  @apply bg-transparent border border-zinc-600 text-white hover:border-orange-600 hover:text-orange-600;
+}
+
+.btn-small {
+  @apply px-3 py-1.5 text-sm;
+}
+
+.btn-medium {
+  @apply px-4 py-2 text-base;
+}
+
+.btn-large {
+  @apply px-6 py-3 text-lg;
+}

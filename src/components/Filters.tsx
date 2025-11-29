@@ -1,3 +1,4 @@
+import Button from "./ui/Button";
 import Select from "./ui/Select";
 
 const options = ["Mas reciente", "Mas popular", "Mas activo"].map((option) => ({
@@ -9,13 +10,9 @@ const Filters = () => {
   return (
     <div className="flex justify-between gap-2 mb-4 px-2">
       <div className="flex flex-row gap-2">
-        <button className="bg-zinc-700 cursor-pointer text-white px-4 py-2 rounded-md hover:bg-orange-600 transition">Todos</button>
-        <button className="bg-zinc-700 cursor-pointer text-white px-4 py-2 rounded-md hover:bg-orange-600 transition">
-          Populares
-        </button>
-        <button className="bg-zinc-700 cursor-pointer text-white px-4 py-2 rounded-md hover:bg-orange-600 transition">
-          Seguidos
-        </button>
+        <Button variant="secondary">Todos</Button>
+        <Button variant="secondary">Populares</Button>
+        <Button variant="secondary">Seguidos</Button>
       </div>
       <Select options={options} />
     </div>

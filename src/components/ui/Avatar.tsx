@@ -1,22 +1,55 @@
-interface AvatarProps extends React.ImgHTMLAttributes<HTMLImageElement> {
-  src: string;
-  alt: string;
-  className?: string;
+import type { ImgHTMLAttributes } from "react";
+
+type AvatarSize = "small" | "medium" | "large";
+
+interface AvatarProps extends ImgHTMLAttributes<HTMLImageElement> {
+  size?: AvatarSize;
   title?: string;
   subtitle?: string;
+  showFallback?: boolean;
 }
 
-const Avatar = ({ className = "", title, subtitle, ...props }: AvatarProps) => {
+const Avatar = ({
+  className = "",
+  size = "medium",
+  title,
+  subtitle,
+  showFallback = true,
+  src,
+  alt = "User",
+  ...props
+}: AvatarProps) => {
+  const getFallbackSrc = () => {
+    return `https://ui-avatars.com/api/?name=${encodeURIComponent(
+      title || alt
+    )}&background=random&color=fff`;
+  };
+
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement>) => {
+    if (showFallback) {
+      const target = e.target as HTMLImageElement;
+      target.src = getFallbackSrc();
+    }
+  };
+
+  // Use fallback if no src is provided
+  const imageSrc = src || (showFallback ? getFallbackSrc() : undefined);
+
   return (
     <div className="flex flex-row gap-2 items-center">
       <img
-        className={`rounded-full w-8 h-8 ${className}`}
+        src={imageSrc}
+        alt={alt}
+        className={`avatar avatar-${size} ${className}`}
+        onError={handleImageError}
         {...props}
       />
-      <div className="flex flex-col text-sm">
-        {title && <p className="text-white">{title}</p>}
-        {subtitle && <p className="text-xs text-zinc-400">{subtitle}</p>}
-      </div>
+      {(title || subtitle) && (
+        <div className="flex flex-col text-sm">
+          {title && <p className="text-white font-medium">{title}</p>}
+          {subtitle && <p className="text-xs text-zinc-400">{subtitle}</p>}
+        </div>
+      )}
     </div>
   );
 };

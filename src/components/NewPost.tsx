@@ -1,3 +1,5 @@
+import Button from "./ui/Button";
+
 const NewPost = () => {
   return (
     <div className="bg-zinc-700 rounded-lg p-4 shadow-lg border border-zinc-600 m-2 mb-8">
@@ -9,9 +11,7 @@ const NewPost = () => {
         placeholder="Comparte algo nuevo..."
       />
       <div className="flex justify-end mt-3">
-        <button className="bg-orange-600 hover:bg-orange-700 cursor-pointer text-white font-medium px-6 py-2 rounded-md transition-colors duration-200">
-          Publicar
-        </button>
+        <Button>Publicar</Button>
       </div>
     </div>
   );

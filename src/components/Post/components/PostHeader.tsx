@@ -1,6 +1,6 @@
-import { BsThreeDotsVertical } from "react-icons/bs";
-import Avatar from "./ui/Avatar";
-import Dropdown from "./ui/Dropdown";
+import { FaEllipsisV, FaPen, FaTrash, FaFlag, FaEyeSlash } from "react-icons/fa";
+import Avatar from "components/ui/Avatar";
+import Dropdown from "components/ui/Dropdown";
 
 interface PostHeaderProps {
   avatar: string;
@@ -14,23 +14,35 @@ const PostHeader = ({ avatar, name, createdAt }: PostHeaderProps) => {
       <Avatar
         className="my-2"
         src={avatar}
-        alt="Profile logo"
         title={name}
         subtitle={new Date(createdAt).toLocaleString()}
+        size="small"
       />
       <Dropdown
         options={[
           {
+            label: "Editar",
+            onClick: () => console.log("Editar clicked"),
+            icon: <FaPen />,
+          },
+          {
+            label: "Borrar",
+            onClick: () => console.log("Borrar clicked"),
+            icon: <FaTrash />,
+          },
+          {
             label: "Reportar",
             onClick: () => console.log("Reportar clicked"),
+            icon: <FaFlag />,
           },
           {
             label: "Ocultar",
             onClick: () => console.log("Ocultar clicked"),
+            icon: <FaEyeSlash />,
           },
         ]}
         trigger={
-          <BsThreeDotsVertical className="w-5 h-5 text-zinc-400 cursor-pointer hover:text-white transition-all duration-200" />
+          <FaEllipsisV className="w-3 text-zinc-400 cursor-pointer hover:text-white transition-colors" />
         }
       />
     </div>

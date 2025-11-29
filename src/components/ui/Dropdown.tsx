@@ -1,4 +1,5 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
+import { useClickOutside } from "../../hooks/useClickOutside";
 
 export interface DropdownOption {
   label: string;
@@ -16,22 +17,8 @@ interface DropdownProps {
 const Dropdown = ({ trigger, options, className = "" }: DropdownProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setIsOpen(false);
-      }
-    };
-
-    if (isOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [isOpen]);
+  
+  useClickOutside(dropdownRef, () => setIsOpen(false));
 
   const handleOptionClick = (option: DropdownOption) => {
     option.onClick();
@@ -40,12 +27,12 @@ const Dropdown = ({ trigger, options, className = "" }: DropdownProps) => {
 
   return (
     <div className={`relative ${className}`} ref={dropdownRef}>
-      <div onClick={() => setIsOpen(!isOpen)} className="cursor-pointer">
+      <div onClick={() => setIsOpen(!isOpen)} className="cursor-pointer hover:bg-zinc-700 transition-colors rounded-full p-1 inline-block">
         {trigger}
       </div>
 
-      {isOpen && (
-        <div className="absolute right-0 mt-2 bg-zinc-700 border border-zinc-600 rounded-md shadow-lg z-50 min-w-48 overflow-hidden">
+      {isOpen && options.length && (
+        <div className="absolute right-0 bg-zinc-700 border border-zinc-600 rounded-md shadow-lg z-50 min-w-content overflow-hidden">
           {options.map((option, index) => (
             <button
               key={index}

@@ -32,12 +32,12 @@ const Dropdown = ({ trigger, options, className = "" }: DropdownProps) => {
       </div>
 
       {isOpen && options.length && (
-        <div className="absolute right-0 bg-zinc-700 border border-zinc-600 rounded-md shadow-lg z-50 min-w-content overflow-hidden">
+        <div className="absolute right-0 bg-zinc-800 border border-zinc-600 rounded-md shadow-lg z-50 min-w-content overflow-hidden">
           {options.map((option, index) => (
             <button
               key={index}
               onClick={() => handleOptionClick(option)}
-              className={`w-full px-4 py-2 text-left text-sm text-white hover:bg-zinc-600 transition-colors duration-150 flex items-center gap-2 ${
+              className={`w-full px-4 py-2 text-left text-sm text-white hover:bg-zinc-700 transition-colors duration-150 flex items-center gap-2 ${
                 option.className || ""
               } cursor-pointer`}
             >

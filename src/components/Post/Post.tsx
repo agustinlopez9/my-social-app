@@ -1,13 +1,9 @@
-import type { ReactNode } from "react";
+import type { PropsWithChildren } from "react";
 import PostHeader from "./components/PostHeader";
 import PostFooter from "./components/PostFooter";
 import PostContent from "./components/PostContent";
 
-interface PostProps {
-  children: ReactNode;
-}
-
-const PostRoot = ({ children }: PostProps) => {
+const PostRoot = ({ children }: PropsWithChildren) => {
   return (
     <div className="relative text-white border bg-zinc-700 border-zinc-600 hover:border-orange-600 p-4 rounded-sm transition ease-in-out duration-200">
       {children}

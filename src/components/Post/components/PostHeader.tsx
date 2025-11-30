@@ -10,6 +10,9 @@ interface PostHeaderProps {
 }
 
 const PostHeader = ({ avatar, name, createdAt }: PostHeaderProps) => {
+  const handleMenuClick = (action: string) => {
+    console.log(`${action} clicked`);
+  };
   return (
     <div className="flex flex-row justify-between items-center w-full">
       <Avatar
@@ -24,22 +27,22 @@ const PostHeader = ({ avatar, name, createdAt }: PostHeaderProps) => {
         options={[
           {
             label: "Editar",
-            onClick: () => console.log("Editar clicked"),
+            onClick: () => handleMenuClick("edit"),
             icon: <FaPen />,
           },
           {
             label: "Borrar",
-            onClick: () => console.log("Borrar clicked"),
+            onClick: () => handleMenuClick("delete"),
             icon: <FaTrash />,
           },
           {
             label: "Reportar",
-            onClick: () => console.log("Reportar clicked"),
+            onClick: () => handleMenuClick("report"),
             icon: <FaFlag />,
           },
           {
             label: "Ocultar",
-            onClick: () => console.log("Ocultar clicked"),
+            onClick: () => handleMenuClick("hide"),
             icon: <FaEyeSlash />,
           },
         ]}

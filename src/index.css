@@ -35,7 +35,7 @@ body {
 
   /* Button Styles */
   .btn {
-    @apply cursor-pointer rounded-md transition-all duration-200 flex items-center justify-center gap-2 font-medium;
+    @apply cursor-pointer rounded-md transition-colors flex items-center justify-center gap-2 font-medium;
   }
 
   .btn-primary {
@@ -61,4 +61,45 @@ body {
   .btn-large {
     @apply px-6 py-3 text-lg;
   }
+}
+
+/* Radio Styles */
+.radio {
+  @apply cursor-pointer rounded-md transition-colors flex items-center justify-center gap-2 font-medium;
+}
+
+.radio-primary {
+  @apply bg-orange-600 text-white hover:bg-orange-700;
+}
+
+.radio-secondary {
+  @apply bg-zinc-700 text-white hover:bg-orange-600;
+}
+
+.radio-outlined {
+  @apply bg-transparent border border-zinc-600 text-white hover:border-orange-600 hover:text-orange-600;
+}
+
+.radio-small {
+  @apply px-3 py-1.5 text-sm;
+}
+
+.radio-medium {
+  @apply px-4 py-2 text-base;
+}
+
+.radio-large {
+  @apply px-6 py-3 text-lg;
+}
+
+.radio-primary-selected {
+  @apply bg-orange-800 text-white;
+}
+
+.radio-secondary-selected {
+  @apply bg-orange-600 text-white;
+}
+
+.radio-outlined-selected {
+  @apply bg-zinc-700 border-orange-600 text-white;
 }

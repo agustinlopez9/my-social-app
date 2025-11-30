@@ -20,15 +20,21 @@ const Dropdown = ({ trigger, options, className = "" }: DropdownProps) => {
 
   useClickOutside(dropdownRef, () => setIsOpen(false));
 
-  const handleOptionClick = (option: DropdownOption) => {
+  const handleOptionClick = (e: React.MouseEvent) => (option: DropdownOption) => {
+    e.stopPropagation();
     option.onClick();
     setIsOpen(false);
+  };
+
+  const handleToggleMenu = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setIsOpen(!isOpen);
   };
 
   return (
     <div className={`relative ${className}`} ref={dropdownRef}>
       <div
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={handleToggleMenu}
         className="cursor-pointer hover:bg-zinc-700 transition-colors rounded-full p-1 inline-block"
       >
         {trigger}
@@ -39,7 +45,7 @@ const Dropdown = ({ trigger, options, className = "" }: DropdownProps) => {
           {options.map((option, index) => (
             <button
               key={index}
-              onClick={() => handleOptionClick(option)}
+              onClick={(event) => handleOptionClick(event)(option)}
               className={`w-full px-4 py-2 text-left text-sm text-white hover:bg-zinc-700 transition-colors duration-150 flex items-center gap-2 ${
                 option.className || ""
               } cursor-pointer`}

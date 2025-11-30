@@ -1,9 +1,10 @@
 import { useMemo } from "react";
 import Comment from "./Comment";
 import type { Comment as CommentType } from "src/mockData";
+import { useComments } from "hooks/comments/useComments";
 
 interface CommentsSectionProps {
-  comments: CommentType[];
+  postId?: string;
 }
 
 interface ResponseCommentProps {
@@ -30,9 +31,15 @@ const ResponseComment = ({ commentsByParentId, parentId }: ResponseCommentProps)
   );
 };
 
-const CommentsSection = ({ comments }: CommentsSectionProps) => {
+const CommentsSection = ({ postId }: CommentsSectionProps) => {
+  const { data: comments, isLoading, error } = useComments(postId || "");
+
   const commentsByParentId = useMemo(() => {
     const map = new Map<string | null, CommentType[]>();
+
+    if (!comments || comments.length === 0) {
+      return map;
+    }
 
     comments.forEach((comment) => {
       const parentId = comment.parentId;
@@ -46,6 +53,14 @@ const CommentsSection = ({ comments }: CommentsSectionProps) => {
   }, [comments]);
 
   const topLevelComments = commentsByParentId.get(null) || [];
+
+  if (isLoading) {
+    return <div>Loading comments...</div>;
+  }
+
+  if (error) {
+    return <div>Error loading comments: {error.message}</div>;
+  }
 
   return (
     <div className="bg-zinc-700 rounded-sm p-2 border border-zinc-600 mt-6">

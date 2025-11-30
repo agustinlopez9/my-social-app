@@ -11,8 +11,8 @@ const UserPost = ({ post }: UserPostProps) => {
   const navigate = useNavigate();
 
   const handlePostClick = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
     navigate(`/post/${id}`);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (

@@ -1,7 +1,7 @@
 import { FaEllipsisV, FaPen, FaTrash, FaFlag, FaEyeSlash } from "react-icons/fa";
 import Avatar from "components/ui/Avatar";
 import Dropdown from "components/ui/Dropdown";
-import { getRelativeTimeFromDate } from "utils";
+import { getRelativeTimeFromDate } from "utils/utils";
 
 interface PostHeaderProps {
   avatar: string;

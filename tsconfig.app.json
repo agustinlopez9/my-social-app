@@ -5,7 +5,12 @@
       "components/*": ["components/*"],
       "views/*": ["views/*"],
       "src/*": ["*"],
-      "utils": ["utils.ts"]
+      "utils/*": ["utils/*"],
+      "hooks/*": ["hooks/*"],
+      "assets/*": ["assets/*"],
+      "config/*": ["config/*"],
+      "lib/*": ["lib/*"],
+      "api/*": ["api/*"]
     },
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
     "target": "ES2022",

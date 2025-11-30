@@ -1,5 +1,5 @@
 import Avatar from "components/ui/Avatar";
-import { getRelativeTimeFromDate } from "utils";
+import { getRelativeTimeFromDate } from "utils/utils";
 import type { Comment as CommentType } from "../../../mockData";
 
 interface CommentProps {

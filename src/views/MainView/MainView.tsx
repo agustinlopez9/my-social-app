@@ -1,7 +1,6 @@
 import Filters from "components/Filters";
 import NewPost from "components/NewPost";
-import { posts } from "../../mockData";
-import UserPost from "components/UserPost";
+import PostsList from "./PostsList";
 
 const MainView = () => {
   return (
@@ -9,9 +8,7 @@ const MainView = () => {
       <div className="flex flex-col">
         <NewPost />
         <Filters />
-        {posts.map((post) => (
-          <UserPost post={post} />
-        ))}
+        <PostsList />
       </div>
     </>
   );

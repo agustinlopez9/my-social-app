@@ -11,7 +11,7 @@ const Comment = ({ comment }: CommentProps) => {
   const commentDate = new Date(createdAt).toLocaleString();
 
   return (
-    <div className="bg-zinc-800 rounded-lg p-4 border border-zinc-600 mb-4">
+    <div className="bg-zinc-800 rounded-lg p-4 border border-zinc-600 mb-2">
       <Avatar
         src={avatar}
         alt={name}

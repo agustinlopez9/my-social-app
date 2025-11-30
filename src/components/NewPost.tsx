@@ -2,7 +2,7 @@ import Button from "./ui/Button";
 
 const NewPost = () => {
   return (
-    <div className="bg-zinc-700 rounded-lg p-4 shadow-lg border border-zinc-600 m-2 mb-8">
+    <div className="bg-zinc-700 rounded-sm p-4 border border-zinc-600 m-2 mb-8">
       <p className="text-white font-semibold mb-3">Crear una publicación</p>
       <textarea
         className="w-full bg-zinc-600 text-white rounded-md p-3 min-h-24 resize-none border border-zinc-600 focus:border-orange-500 focus:outline-none placeholder:text-zinc-400"

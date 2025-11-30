@@ -22,7 +22,10 @@ const Button = ({
   ...props
 }: ButtonProps) => {
   return (
-    <button className={`flex ${iconPosition === "start" ? "flex-row" : "flex-row-reverse"} btn btn-${variant} btn-${size} ${className}`} {...props}>
+    <button
+      className={`flex ${iconPosition === "start" ? "flex-row" : "flex-row-reverse"} btn btn-${variant} btn-${size} ${className}`}
+      {...props}
+    >
       {icon && <span className="flex items-center">{icon}</span>}
       {children}
     </button>

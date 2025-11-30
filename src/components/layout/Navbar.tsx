@@ -7,7 +7,10 @@ const Navbar = () => {
       <nav className="flex flex-row justify-between items-center mx-auto max-w-5xl bg-zinc-900 px-4 py-2 text-white">
         <Link to="/">
           <h1 className="text-2xl font-bold">
-            <span className="bg-linear-to-r from-orange-600 to-orange-400 bg-clip-text text-transparent">Sync</span>Up!
+            <span className="bg-linear-to-r from-orange-600 to-orange-400 bg-clip-text text-transparent">
+              Sync
+            </span>
+            Up!
           </h1>
         </Link>
         <UserDropdown name="Agustin Lopez" avatar="/avatar.png" />

@@ -23,7 +23,8 @@ export const posts: Post[] = [
     name: "María García",
     avatar: "https://i.pravatar.cc/150?img=1",
     title: "Mi primera experiencia con React",
-    content: "Acabo de terminar mi primer proyecto en React y estoy muy emocionada. El desarrollo de componentes es realmente intuitivo una vez que entiendes el concepto de props y state.",
+    content:
+      "Acabo de terminar mi primer proyecto en React y estoy muy emocionada. El desarrollo de componentes es realmente intuitivo una vez que entiendes el concepto de props y state.",
   },
   {
     id: "2",
@@ -31,7 +32,8 @@ export const posts: Post[] = [
     name: "Carlos Rodríguez",
     avatar: "https://i.pravatar.cc/150?img=2",
     title: "Consejos para desarrolladores junior",
-    content: "Después de 5 años en la industria, estos son mis consejos: practica todos los días, lee documentación oficial, y no tengas miedo de hacer preguntas. La comunidad está aquí para ayudar.",
+    content:
+      "Después de 5 años en la industria, estos son mis consejos: practica todos los días, lee documentación oficial, y no tengas miedo de hacer preguntas. La comunidad está aquí para ayudar.",
   },
   {
     id: "3",
@@ -39,7 +41,8 @@ export const posts: Post[] = [
     name: "Ana Martínez",
     avatar: "https://i.pravatar.cc/150?img=3",
     title: "TypeScript vs JavaScript",
-    content: "He estado usando TypeScript por 6 meses y no puedo imaginar volver a JavaScript puro. El tipado estático me ha salvado de innumerables bugs en producción.",
+    content:
+      "He estado usando TypeScript por 6 meses y no puedo imaginar volver a JavaScript puro. El tipado estático me ha salvado de innumerables bugs en producción.",
   },
   {
     id: "4",
@@ -47,7 +50,8 @@ export const posts: Post[] = [
     name: "Luis Hernández",
     avatar: "https://i.pravatar.cc/150?img=4",
     title: "Tailwind CSS cambió mi forma de trabajar",
-    content: "Solía escribir CSS personalizado para todo, pero Tailwind ha acelerado mi flujo de trabajo tremendamente. Las clases utility-first son un game changer.",
+    content:
+      "Solía escribir CSS personalizado para todo, pero Tailwind ha acelerado mi flujo de trabajo tremendamente. Las clases utility-first son un game changer.",
   },
   {
     id: "5",
@@ -55,7 +59,8 @@ export const posts: Post[] = [
     name: "Sofía López",
     avatar: "https://i.pravatar.cc/150?img=5",
     title: "Optimización de rendimiento en aplicaciones web",
-    content: "Les comparto algunas técnicas que uso: lazy loading de imágenes, code splitting, memorización de componentes, y debouncing en inputs de búsqueda. Cada milisegundo cuenta.",
+    content:
+      "Les comparto algunas técnicas que uso: lazy loading de imágenes, code splitting, memorización de componentes, y debouncing en inputs de búsqueda. Cada milisegundo cuenta.",
   },
 ];
 
@@ -65,7 +70,8 @@ export const comments: Comment[] = [
     createdAt: "2025-11-29T19:25:00Z",
     name: "Pedro Sánchez",
     avatar: "https://i.pravatar.cc/150?img=2",
-    content: "¡Felicitaciones! React es increíble una vez que le agarras el ritmo. ¿Ya probaste hooks?",
+    content:
+      "¡Felicitaciones! React es increíble una vez que le agarras el ritmo. ¿Ya probaste hooks?",
     parentId: null,
   },
   {
@@ -97,7 +103,8 @@ export const comments: Comment[] = [
     createdAt: "2025-11-26T11:45:00Z",
     name: "Laura Torres",
     avatar: "https://i.pravatar.cc/150?img=7",
-    content: "useReducer es excelente para estados complejos. Lo uso cuando tengo múltiples sub-valores relacionados.",
+    content:
+      "useReducer es excelente para estados complejos. Lo uso cuando tengo múltiples sub-valores relacionados.",
     parentId: "4",
   },
   {
@@ -121,7 +128,8 @@ export const comments: Comment[] = [
     createdAt: "2025-11-26T12:30:00Z",
     name: "Miguel Ángel Castro",
     avatar: "https://i.pravatar.cc/150?img=12",
-    content: "Los compound components son perfectos para bibliotecas de UI. Headless UI usa ese patrón.",
+    content:
+      "Los compound components son perfectos para bibliotecas de UI. Headless UI usa ese patrón.",
     parentId: "7",
   },
   {
@@ -129,7 +137,8 @@ export const comments: Comment[] = [
     createdAt: "2025-11-26T12:45:00Z",
     name: "Valentina Ortiz",
     avatar: "https://i.pravatar.cc/150?img=13",
-    content: "También el patrón de Higher Order Components (HOC) aunque está siendo reemplazado por hooks.",
+    content:
+      "También el patrón de Higher Order Components (HOC) aunque está siendo reemplazado por hooks.",
     parentId: "6",
   },
   {
@@ -162,7 +171,8 @@ export const comments: Comment[] = [
     createdAt: "2025-11-26T13:45:00Z",
     name: "Gabriela Romero",
     avatar: "https://i.pravatar.cc/150?img=15",
-    content: "Sí, al principio sí. La revalidación automática es confusa, pero una vez entiendes las estrategias de fetch es mucho más simple.",
+    content:
+      "Sí, al principio sí. La revalidación automática es confusa, pero una vez entiendes las estrategias de fetch es mucho más simple.",
     parentId: "12",
   },
   // Level 5 reply to comment 13 - deepest level
@@ -171,7 +181,8 @@ export const comments: Comment[] = [
     createdAt: "2025-11-26T14:00:00Z",
     name: "Carlos Rodríguez",
     avatar: "https://i.pravatar.cc/150?img=2",
-    content: "¿Podrías compartir un ejemplo de cómo configuraste la revalidación? Estoy luchando con eso ahora.",
+    content:
+      "¿Podrías compartir un ejemplo de cómo configuraste la revalidación? Estoy luchando con eso ahora.",
     parentId: "13",
   },
   // Another level 5 reply to comment 13
@@ -180,7 +191,8 @@ export const comments: Comment[] = [
     createdAt: "2025-11-26T14:15:00Z",
     name: "Ana Martínez",
     avatar: "https://i.pravatar.cc/150?img=3",
-    content: "Yo uso 'revalidate: 60' para la mayoría de mis páginas. Funciona perfecto para contenido que no cambia muy seguido.",
+    content:
+      "Yo uso 'revalidate: 60' para la mayoría de mis páginas. Funciona perfecto para contenido que no cambia muy seguido.",
     parentId: "13",
   },
   // Level 6 reply to comment 14 (even deeper!)
@@ -189,7 +201,8 @@ export const comments: Comment[] = [
     createdAt: "2025-11-26T14:30:00Z",
     name: "Gabriela Romero",
     avatar: "https://i.pravatar.cc/150?img=15",
-    content: "Claro! Básicamente usas fetch con { next: { revalidate: 3600 } } para cachear por 1 hora. También puedes usar tags para invalidación manual.",
+    content:
+      "Claro! Básicamente usas fetch con { next: { revalidate: 3600 } } para cachear por 1 hora. También puedes usar tags para invalidación manual.",
     parentId: "14",
   },
   // Level 7 reply to comment 16 (ultra deep!)
@@ -198,7 +211,8 @@ export const comments: Comment[] = [
     createdAt: "2025-11-26T14:45:00Z",
     name: "Carlos Rodríguez",
     avatar: "https://i.pravatar.cc/150?img=2",
-    content: "¡Perfecto! Justo lo que necesitaba. ¿Y para invalidar manualmente usas revalidatePath() o revalidateTag()?",
+    content:
+      "¡Perfecto! Justo lo que necesitaba. ¿Y para invalidar manualmente usas revalidatePath() o revalidateTag()?",
     parentId: "16",
   },
   // Level 8 reply to comment 17 (max depth!)
@@ -207,7 +221,8 @@ export const comments: Comment[] = [
     createdAt: "2025-11-26T15:00:00Z",
     name: "Gabriela Romero",
     avatar: "https://i.pravatar.cc/150?img=15",
-    content: "Uso revalidateTag() porque es más granular. Puedo invalidar solo lo que necesito sin afectar todo el path.",
+    content:
+      "Uso revalidateTag() porque es más granular. Puedo invalidar solo lo que necesito sin afectar todo el path.",
     parentId: "17",
   },
   // New thread - reply to comment 8
@@ -216,7 +231,8 @@ export const comments: Comment[] = [
     createdAt: "2025-11-26T15:15:00Z",
     name: "Pedro Sánchez",
     avatar: "https://i.pravatar.cc/150?img=2",
-    content: "Totalmente de acuerdo. He estado usando Radix UI últimamente y la composición es brillante.",
+    content:
+      "Totalmente de acuerdo. He estado usando Radix UI últimamente y la composición es brillante.",
     parentId: "8",
   },
   // Reply to comment 19
@@ -234,7 +250,8 @@ export const comments: Comment[] = [
     createdAt: "2025-11-26T15:45:00Z",
     name: "Isabel Morales",
     avatar: "https://i.pravatar.cc/150?img=11",
-    content: "¿Cómo compararías Radix con Chakra UI? Estoy evaluando opciones para mi próximo proyecto.",
+    content:
+      "¿Cómo compararías Radix con Chakra UI? Estoy evaluando opciones para mi próximo proyecto.",
     parentId: "20",
   },
   // Reply to comment 21
@@ -243,7 +260,8 @@ export const comments: Comment[] = [
     createdAt: "2025-11-26T16:00:00Z",
     name: "Pedro Sánchez",
     avatar: "https://i.pravatar.cc/150?img=2",
-    content: "Radix es headless, así que tienes control total del estilo. Chakra viene pre-estilizado. Depende de cuánto control quieras.",
+    content:
+      "Radix es headless, así que tienes control total del estilo. Chakra viene pre-estilizado. Depende de cuánto control quieras.",
     parentId: "21",
   },
 ];

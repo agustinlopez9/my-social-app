@@ -1,6 +1,6 @@
-import Avatar from "../ui/Avatar";
-import type { Comment as CommentType } from "../../mockData";
-import { getRelativeTimeFromDate } from "../../utils";
+import Avatar from "components/ui/Avatar";
+import { getRelativeTimeFromDate } from "utils";
+import type { Comment as CommentType } from "../../../mockData";
 
 interface CommentProps {
   comment: CommentType;
@@ -20,7 +20,7 @@ const Comment = ({ comment }: CommentProps) => {
         size="smaller"
         direction="row"
       />
-      <p className="text-white text-sm mt-2">{content}</p> 
+      <p className="text-white text-sm mt-2">{content}</p>
     </div>
   );
 };

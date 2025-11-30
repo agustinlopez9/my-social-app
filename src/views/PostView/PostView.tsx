@@ -2,14 +2,13 @@ import { useParams, useNavigate } from "react-router";
 import { FaArrowLeft } from "react-icons/fa";
 import Button from "components/ui/Button";
 import Post from "components/Post/Post";
-import CommentsSection from "components/CommentsSection";
+import CommentsSection from "views/PostView/components/CommentsSection";
 import NotFound from "components/NotFound";
 import { posts, comments } from "../../mockData";
 
 const PostView = () => {
-  const { id } = useParams();
+  const { id: postId } = useParams();
   const navigate = useNavigate();
-  const postId = parseInt(id || "0", 10);
 
   const post = posts.find((post) => post.id === postId);
 
@@ -30,10 +29,10 @@ const PostView = () => {
       <Post>
         <Post.Header avatar={post.avatar} name={post.name} createdAt={post.createdAt} />
         <Post.Content title={post.title} content={post.content} />
-        <Post.Footer commentsCount={comments.length}/>
+        <Post.Footer commentsCount={comments.length} />
       </Post>
 
-      <CommentsSection comments={comments}/>
+      <CommentsSection comments={comments} />
     </div>
   );
 };

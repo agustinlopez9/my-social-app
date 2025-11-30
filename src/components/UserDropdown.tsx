@@ -24,20 +24,11 @@ const profileOptions: DropdownOption[] = [
     onClick: () => console.log("Cerrar sesión clicked"),
     icon: <FaArrowRightToBracket />,
   },
-]
+];
 
 const UserDropdown = ({ avatar, name }: UserDropdownProps) => {
   return (
-    <Dropdown
-      trigger={
-        <Avatar
-          src={avatar}
-          alt={name}
-          size="small"
-        />
-      }
-      options={profileOptions}
-    />
+    <Dropdown trigger={<Avatar src={avatar} alt={name} size="small" />} options={profileOptions} />
   );
 };
 

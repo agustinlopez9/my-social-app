@@ -15,6 +15,6 @@ const NewPost = () => {
       </div>
     </div>
   );
-}
- 
+};
+
 export default NewPost;

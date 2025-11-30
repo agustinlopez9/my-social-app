@@ -17,7 +17,7 @@ interface DropdownProps {
 const Dropdown = ({ trigger, options, className = "" }: DropdownProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
-  
+
   useClickOutside(dropdownRef, () => setIsOpen(false));
 
   const handleOptionClick = (option: DropdownOption) => {
@@ -27,7 +27,10 @@ const Dropdown = ({ trigger, options, className = "" }: DropdownProps) => {
 
   return (
     <div className={`relative ${className}`} ref={dropdownRef}>
-      <div onClick={() => setIsOpen(!isOpen)} className="cursor-pointer hover:bg-zinc-700 transition-colors rounded-full p-1 inline-block">
+      <div
+        onClick={() => setIsOpen(!isOpen)}
+        className="cursor-pointer hover:bg-zinc-700 transition-colors rounded-full p-1 inline-block"
+      >
         {trigger}
       </div>
 

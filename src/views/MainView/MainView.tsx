@@ -10,7 +10,7 @@ const MainView = () => {
         <NewPost />
         <Filters />
         {posts.map((post) => (
-          <UserPost post={post}/>
+          <UserPost post={post} />
         ))}
       </div>
     </>

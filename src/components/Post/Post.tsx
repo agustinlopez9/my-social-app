@@ -5,7 +5,7 @@ import PostContent from "./components/PostContent";
 
 const PostRoot = ({ children }: PropsWithChildren) => {
   return (
-    <div className="relative text-white border bg-zinc-700 border-zinc-600 hover:border-orange-600 p-4 rounded-sm transition ease-in-out duration-200">
+    <div className="relative text-primary border bg-surface-primary border-border-subtle hover:border-border-interactive p-4 m-2 rounded-sm transition ease-in-out duration-200 shadow-sm">
       {children}
     </div>
   );

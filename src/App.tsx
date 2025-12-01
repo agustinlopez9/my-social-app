@@ -2,6 +2,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Outlet } from "react-router";
 import { Toaster } from "react-hot-toast";
 import Navbar from "components/layout/Navbar";
+import { colors } from "theme";
 
 const queryClient = new QueryClient();
 
@@ -13,20 +14,20 @@ function App() {
         toastOptions={{
           duration: 3000,
           style: {
-            background: '#1f1f23',
-            color: '#fff',
-            border: '1px solid #2a2a2e',
+            background: colors.surface.navbar.hex,
+            color: colors.text.primary.hex,
+            border: `1px solid ${colors.border.subtle.hex}`,
           },
           success: {
             iconTheme: {
-              primary: '#22c55e',
-              secondary: '#fff',
+              primary: colors.state.success.hex,
+              secondary: colors.state.successFg.hex,
             },
           },
           error: {
             iconTheme: {
-              primary: '#ef4444',
-              secondary: '#fff',
+              primary: colors.state.error.hex,
+              secondary: colors.state.errorFg.hex,
             },
           },
         }}

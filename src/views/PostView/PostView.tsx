@@ -17,9 +17,13 @@ const PostView = () => {
 
   if (isLoading) {
     return (
-      <LoadingIndicator
-        loadingMessage={t("loading.copy.withData", { data: t("post.labels.title").toLowerCase() })}
-      />
+      <div className="flex items-center justify-center min-h-48 my-10">
+        <LoadingIndicator
+          loadingMessage={t("loading.copy.withData", {
+            data: t("post.labels.title").toLowerCase(),
+          })}
+        />
+      </div>
     );
   }
 

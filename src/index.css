@@ -1,4 +1,7 @@
 @import "tailwindcss";
+@import "./theme/colors.css";
+@import "./theme/dark-theme.css";
+@import "./theme/light-theme.css";
 
 * {
   box-sizing: border-box;
@@ -7,7 +10,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: oklch(27.4% 0.006 286.033);
+  background-color: var(--color-surface-base);
   font-family: "Lato", sans-serif;
 }
 
@@ -39,15 +42,32 @@ body {
   }
 
   .btn-primary {
-    @apply bg-orange-600 text-white hover:bg-orange-700;
+    background-color: var(--color-interactive-primary);
+    color: var(--color-on-brand);
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-interactive-primary-hover);
   }
 
   .btn-secondary {
-    @apply bg-zinc-700 text-white hover:bg-orange-600;
+    background-color: var(--color-interactive-secondary);
+    color: var(--color-primary);
+  }
+
+  .btn-secondary:hover {
+    background-color: var(--color-interactive-secondary-hover);
   }
 
   .btn-outlined {
-    @apply bg-transparent border border-zinc-600 text-white hover:border-orange-600 hover:text-orange-600;
+    @apply bg-transparent;
+    border: 1px solid var(--color-border-subtle);
+    color: var(--color-primary);
+  }
+
+  .btn-outlined:hover {
+    border-color: var(--color-border-interactive);
+    color: var(--color-brand);
   }
 
   .btn-small {
@@ -69,15 +89,32 @@ body {
 }
 
 .radio-primary {
-  @apply bg-orange-600 text-white hover:bg-orange-700;
+  background-color: var(--color-interactive-primary);
+  color: var(--color-on-brand);
+}
+
+.radio-primary:hover {
+  background-color: var(--color-interactive-primary-hover);
 }
 
 .radio-secondary {
-  @apply bg-zinc-700 text-white hover:bg-orange-600;
+  background-color: var(--color-interactive-secondary);
+  color: var(--color-primary);
+}
+
+.radio-secondary:hover {
+  background-color: var(--color-interactive-secondary-hover);
 }
 
 .radio-outlined {
-  @apply bg-transparent border border-zinc-600 text-white hover:border-orange-600 hover:text-orange-600;
+  @apply bg-transparent;
+  border: 1px solid var(--color-border-subtle);
+  color: var(--color-primary);
+}
+
+.radio-outlined:hover {
+  border-color: var(--color-border-interactive);
+  color: var(--color-brand);
 }
 
 .radio-small {
@@ -93,13 +130,17 @@ body {
 }
 
 .radio-primary-selected {
-  @apply bg-orange-800 text-white;
+  background-color: var(--color-interactive-primary-active);
+  color: var(--color-on-brand);
 }
 
 .radio-secondary-selected {
-  @apply bg-orange-600 text-white;
+  background-color: var(--color-interactive-secondary-hover);
+  color: var(--color-primary);
 }
 
 .radio-outlined-selected {
-  @apply bg-zinc-700 border-orange-600 text-white;
+  background-color: var(--color-interactive-secondary);
+  border-color: var(--color-border-interactive);
+  color: var(--color-primary);
 }

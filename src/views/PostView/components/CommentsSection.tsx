@@ -60,11 +60,13 @@ const CommentsSection = ({ postId }: CommentsSectionProps) => {
 
   if (isLoading) {
     return (
-      <LoadingIndicator
-        loadingMessage={t("loading.copy.withData", {
-          data: t("comments.labels.title").toLowerCase(),
-        })}
-      />
+      <div className="my-10">
+        <LoadingIndicator
+          loadingMessage={t("loading.copy.withData", {
+            data: t("comments.labels.title").toLowerCase(),
+          })}
+        />
+      </div>
     );
   }
 
@@ -73,7 +75,7 @@ const CommentsSection = ({ postId }: CommentsSectionProps) => {
   }
 
   return (
-    <div className="bg-zinc-700 rounded-sm p-2 border border-zinc-600 mt-6">
+    <div className="bg-surface-primary rounded-sm p-2 border border-border-subtle mt-6">
       {topLevelComments.map((comment) => (
         <div key={comment.id}>
           <Comment comment={comment} />

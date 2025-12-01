@@ -48,11 +48,11 @@ const Avatar = ({
       />
       {(title || subtitle) && (
         <div
-          className={`flex ${direction === "row" ? "flex-row items-center" : "flex-col justify-start"} text-white font-medium text-sm`}
+          className={`flex ${direction === "row" ? "flex-row items-center" : "flex-col justify-start"} text-primary font-medium text-sm`}
         >
-          <p className="text-white font-medium">{title}</p>
+          <p className="text-primary font-medium">{title}</p>
           {subtitle && (
-            <span className={`block text-zinc-400 text-xs ${direction === "row" ? "ml-1" : ""}`}>
+            <span className={`block text-tertiary text-xs ${direction === "row" ? "ml-1" : ""}`}>
               {direction === "row" ? "•" : ""} {subtitle}
             </span>
           )}

@@ -10,11 +10,13 @@ const PostsList = () => {
 
   if (isLoading) {
     return (
-      <LoadingIndicator
-        loadingMessage={t("loading.copy.withData", {
-          data: t("posts.labels.title"),
-        })}
-      />
+      <div className="my-6">
+        <LoadingIndicator
+          loadingMessage={t("loading.copy.withData", {
+            data: t("posts.labels.title"),
+          })}
+        />
+      </div>
     );
   }
 

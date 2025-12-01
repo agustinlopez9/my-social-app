@@ -21,15 +21,15 @@ const Toggle = ({ options, defaultValue, onChange, className = "" }: ToggleProps
   };
 
   return (
-    <div className={`inline-flex rounded-md bg-zinc-700 p-1 ${className}`}>
+    <div className={`inline-flex rounded-md bg-interactive-secondary p-1 ${className}`}>
       {options.map((option) => (
         <button
           key={option.value}
           onClick={() => handleToggle(option.value)}
           className={`px-3 py-1 text-sm font-medium rounded transition-colors ${
             selectedValue === option.value
-              ? "bg-orange-600 text-white"
-              : "text-zinc-300 hover:text-white"
+              ? "bg-interactive-primary text-on-brand"
+              : "text-secondary hover:text-primary"
           }`}
         >
           {option.label}

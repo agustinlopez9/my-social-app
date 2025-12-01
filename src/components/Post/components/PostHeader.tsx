@@ -47,7 +47,7 @@ const PostHeader = ({ avatar, name, createdAt }: PostHeaderProps) => {
           },
         ]}
         trigger={
-          <FaEllipsisV className="w-3 text-zinc-400 cursor-pointer hover:text-white transition-colors" />
+          <FaEllipsisV className="w-3 text-tertiary cursor-pointer hover:text-primary transition-colors" />
         }
       />
     </div>

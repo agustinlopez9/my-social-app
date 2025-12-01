@@ -1,0 +1,30 @@
+/**
+ * TODO Dark Theme
+ *
+ * This file contains dark theme specific overrides.
+ * Currently this is the default and only theme.
+ *
+ * In the future, this will be applied via [data-theme="dark"] selector
+ * for theme switching support.
+ */
+
+/* Currently matches :root defaults - placeholder for future theme switching */
+
+/* Uncomment and modify when implementing theme switching:
+
+[data-theme="dark"] {
+  --color-surface-base: oklch(27.4% 0.006 286.033);
+  --color-surface-primary: oklch(42% 0.006 286);
+  --color-surface-secondary: oklch(34% 0.006 286);
+  --color-surface-elevated: oklch(50% 0.006 286);
+  --color-surface-navbar: oklch(22% 0.006 286);
+  --color-surface-input: oklch(50% 0.006 286);
+
+  --color-primary: oklch(100% 0 0);
+  --color-secondary: oklch(80% 0.005 286);
+  --color-tertiary: oklch(70% 0.005 286);
+
+  ... other dark theme colors
+}
+
+*/

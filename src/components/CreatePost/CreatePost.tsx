@@ -37,8 +37,8 @@ const CreatePost = () => {
   };
 
   return (
-    <div className="bg-zinc-700 rounded-sm p-4 border border-zinc-600 m-2 mb-8">
-      <p className="text-white font-semibold mb-3">{t("post.labels.createTitle")}</p>
+    <div className="bg-surface-primary rounded-sm p-4 border border-border-subtle m-2 mb-8 shadow-sm">
+      <p className="text-primary font-semibold mb-3">{t("post.labels.createTitle")}</p>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
         <FormInput
           {...register("title")}

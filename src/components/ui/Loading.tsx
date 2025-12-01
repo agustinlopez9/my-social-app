@@ -23,7 +23,11 @@ interface LoadingIndicatorProps {
   size?: Size;
 }
 
-const LoadingIndicator = ({ loadingMessage, showMessage = true, size = "large" }: LoadingIndicatorProps) => {
+const LoadingIndicator = ({
+  loadingMessage,
+  showMessage = true,
+  size = "large",
+}: LoadingIndicatorProps) => {
   const { t } = useTranslation();
   const strokeWidth = sizeValues[size].strokeWidth;
   const sizeValue = sizeValues[size].size;
@@ -45,7 +49,7 @@ const LoadingIndicator = ({ loadingMessage, showMessage = true, size = "large" }
           cx={sizeValue / 2}
           cy={sizeValue / 2}
           r={radius}
-          stroke="oklch(47% 0.157 37.304)"
+          className="stroke-brand-700"
           strokeWidth={strokeWidth}
           fill="transparent"
           strokeDasharray={`${borderLength} ${indicatorLength}`}
@@ -57,7 +61,7 @@ const LoadingIndicator = ({ loadingMessage, showMessage = true, size = "large" }
           cx={sizeValue / 2}
           cy={sizeValue / 2}
           r={radius}
-          stroke="oklch(64.6% 0.222 41.116)"
+          className="stroke-brand-500"
           strokeWidth={strokeWidth}
           fill="none"
           strokeDasharray={`${indicatorLength} ${borderLength}`}
@@ -65,7 +69,9 @@ const LoadingIndicator = ({ loadingMessage, showMessage = true, size = "large" }
           strokeLinecap="butt"
         />
       </svg>
-      {showMessage ? <p className="mt-2 text-white">{loadingMessage || t("loading.copy.default")}</p> : null}
+      {showMessage ? (
+        <p className="mt-2 text-primary">{loadingMessage || t("loading.copy.default")}</p>
+      ) : null}
     </div>
   );
 };

@@ -1,0 +1,30 @@
+/**
+ * TODO Light Theme
+ *
+ * This file will contain light theme overrides.
+ * When implementing light mode, update semantic tokens here.
+ */
+
+/* Uncomment and implement when adding light mode support:
+
+[data-theme="light"] {
+  --color-surface-base: oklch(98% 0.002 286);
+  --color-surface-primary: oklch(100% 0 0);
+  --color-surface-secondary: oklch(95% 0.003 286);
+  --color-surface-elevated: oklch(98% 0.002 286);
+  --color-surface-navbar: oklch(100% 0 0);
+  --color-surface-input: oklch(98% 0.002 286);
+
+  --color-primary: oklch(20% 0 0);
+  --color-secondary: oklch(40% 0 0);
+  --color-tertiary: oklch(50% 0 0);
+  --color-disabled: oklch(60% 0 0);
+  --color-placeholder: oklch(60% 0 0);
+
+  --color-border-subtle: oklch(88% 0.004 286);
+  --color-border-default: oklch(80% 0.005 286);
+
+  ... other light theme colors
+}
+
+*/

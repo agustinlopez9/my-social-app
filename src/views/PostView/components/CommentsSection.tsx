@@ -1,10 +1,12 @@
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
-import Comment from "./Comment";
 import type { Comment as CommentType } from "api/types";
-import { useComments } from "hooks/comments/useComments";
+//import { useComments } from "hooks/comments/useComments";
 import LoadingIndicator from "components/ui/Loading";
 import Error from "components/ui/Error";
+import CommentTreeBranch from "./TreeBranch";
+import Comment from "./Comment";
+import { comments } from "../../../mockData";
 
 interface CommentsSectionProps {
   postId?: string;
@@ -21,10 +23,12 @@ const ResponseComment = ({ commentsByParentId, parentId }: ResponseCommentProps)
   if (!responseComments || !responseComments.length) return null;
 
   return (
-    <div className="ml-6">
-      {responseComments.map((comment) => {
+    <div className="ml-6 pl-2">
+      {responseComments.map((comment, index) => {
+        const isLast = index === responseComments.length - 1;
         return (
-          <div key={comment.id}>
+          <div key={comment.id} className="relative">
+            <CommentTreeBranch isLast={isLast} />
             <Comment comment={comment} />
             <ResponseComment commentsByParentId={commentsByParentId} parentId={comment.id} />
           </div>
@@ -36,7 +40,9 @@ const ResponseComment = ({ commentsByParentId, parentId }: ResponseCommentProps)
 
 const CommentsSection = ({ postId }: CommentsSectionProps) => {
   const { t } = useTranslation();
-  const { data: comments, isLoading, error } = useComments(postId || "");
+  //  const { data: comments, isLoading, error } = useComments(postId || "");
+  const isLoading = false;
+  const error = postId ? null : "";
 
   const commentsByParentId = useMemo(() => {
     const map = new Map<string | null, CommentType[]>();
@@ -75,7 +81,7 @@ const CommentsSection = ({ postId }: CommentsSectionProps) => {
   }
 
   return (
-    <div className="bg-surface-primary rounded-sm p-2 border border-border-subtle mt-6">
+    <div className="bg-surface-primary rounded-sm p-2 m-2 mt-6 border border-border-subtle overflow-x-scroll">
       {topLevelComments.map((comment) => (
         <div key={comment.id}>
           <Comment comment={comment} />

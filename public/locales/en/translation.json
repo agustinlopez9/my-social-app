@@ -1,0 +1,77 @@
+{
+  "common": {
+    "labels": {
+      "brand": "SyncUp!",
+      "loading": "Loading...",
+      "error": "Error"
+    },
+    "copy": {
+      "textPlaceholder": "Type something here..."
+    },
+    "actions": {
+      "save": "Save",
+      "cancel": "Cancel",
+      "delete": "Delete",
+      "edit": "Edit",
+      "publish": "Publish",
+      "report": "Report",
+      "hide": "Hide"
+    }
+  },
+  "userMenu": {
+    "labels": {
+      "profile": "Profile",
+      "settings": "Settings",
+      "logout": "Log out",
+      "language": "Language"
+    }
+  },
+  "posts": {
+    "labels": {
+      "title": "Posts",
+      "all": "All",
+      "trending": "Trending",
+      "following": "Following"
+    },
+    "errors": {
+      "load": "Error loading posts:"
+    }
+  },
+  "post": {
+    "labels": {
+      "title": "Post",
+      "createTitle": "Create a post",
+      "placeholder": "Share something new..."
+    },
+    "errors": {
+      "load": "Error loading post:"
+    }
+  },
+  "comments": {
+    "labels": {
+      "title": "Comments"
+    },
+    "errors": {
+      "load": "Error loading comments:"
+    }
+  },
+  "notFound": {
+    "labels": {
+      "title": "Oops!"
+    },
+    "copy": {
+      "message": "We couldn't find what you're looking for. The page you requested might have been moved or doesn't exist."
+    }
+  },
+  "loading": {
+    "labels": {
+      "posts": "Posts",
+      "post": "Post",
+      "comments": "Comments"
+    },
+    "copy": {
+      "default": "Loading...",
+      "withData": "Loading {{data}}..."
+    }
+  }
+}

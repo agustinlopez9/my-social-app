@@ -5,6 +5,7 @@ export interface DropdownOption {
   label: string;
   onClick: () => void;
   icon?: React.ReactNode;
+  component?: React.ReactNode;
   className?: string;
 }
 
@@ -46,12 +47,17 @@ const Dropdown = ({ trigger, options, className = "" }: DropdownProps) => {
             <button
               key={index}
               onClick={(event) => handleOptionClick(event)(option)}
-              className={`w-full px-4 py-2 text-left text-sm text-white hover:bg-zinc-700 transition-colors duration-150 flex items-center gap-2 ${
+              className={`flex flex-row gap-2 w-full px-4 py-2 text-left text-sm text-white hover:bg-zinc-700 transition-colors ${option.component ? "" : "cursor-pointer"} ${
                 option.className || ""
-              } cursor-pointer`}
+              }`}
             >
-              {option.icon && <span className="w-4 h-4">{option.icon}</span>}
-              <span>{option.label}</span>
+              <div className="flex flex-row items-center gap-2">
+                {option.icon && <span className="w-4 h-4">{option.icon}</span>}
+                <span>{option.label}</span>
+              </div>
+              {option.component && (
+                <div onClick={(e) => e.stopPropagation()}>{option.component}</div>
+              )}
             </button>
           ))}
         </div>

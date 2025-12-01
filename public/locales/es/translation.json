@@ -1,0 +1,77 @@
+{
+  "common": {
+    "labels": {
+      "brand": "SyncUp!",
+      "loading": "Cargando...",
+      "error": "Error"
+    },
+    "copy": {
+      "textPlaceholder": "Escribe algo aquí..."
+    },
+    "actions": {
+      "save": "Guardar",
+      "cancel": "Cancelar",
+      "delete": "Eliminar",
+      "edit": "Editar",
+      "publish": "Publicar",
+      "report": "Reportar",
+      "hide": "Ocultar"
+    }
+  },
+  "userMenu": {
+    "labels": {
+      "profile": "Perfil",
+      "settings": "Configuración",
+      "logout": "Cerrar sesión",
+      "language": "Idioma"
+    }
+  },
+  "posts": {
+    "labels": {
+      "title": "Publicaciones",
+      "all": "Todos",
+      "trending": "Populares",
+      "following": "Seguidos"
+    },
+    "errors": {
+      "load": "Error al cargar las publicaciones:"
+    }
+  },
+  "post": {
+    "labels": {
+      "title": "Publicación",
+      "createTitle": "Crear una publicación",
+      "placeholder": "Comparte algo nuevo..."
+    },
+    "errors": {
+      "load": "Error al cargar la publicación:"
+    }
+  },
+  "comments": {
+    "labels": {
+      "title": "Comentarios"
+    },
+    "errors": {
+      "load": "Error al cargar los comentarios:"
+    }
+  },
+  "notFound": {
+    "labels": {
+      "title": "¡Ups!"
+    },
+    "copy": {
+      "message": "No pudimos encontrar lo que buscas. La página que solicitaste podría haber sido movida o no existe."
+    }
+  },
+  "loading": {
+    "labels": {
+      "posts": "Publicaciones",
+      "post": "Publicación",
+      "comments": "Comentarios"
+    },
+    "copy": {
+      "default": "Cargando...",
+      "withData": "Cargando {{data}}..."
+    }
+  }
+}

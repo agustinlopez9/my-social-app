@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import Comment from "./Comment";
 import type { Comment as CommentType } from "src/mockData";
 import { useComments } from "hooks/comments/useComments";
@@ -32,6 +33,7 @@ const ResponseComment = ({ commentsByParentId, parentId }: ResponseCommentProps)
 };
 
 const CommentsSection = ({ postId }: CommentsSectionProps) => {
+  const { t } = useTranslation();
   const { data: comments, isLoading, error } = useComments(postId || "");
 
   const commentsByParentId = useMemo(() => {
@@ -55,11 +57,15 @@ const CommentsSection = ({ postId }: CommentsSectionProps) => {
   const topLevelComments = commentsByParentId.get(null) || [];
 
   if (isLoading) {
-    return <div>Loading comments...</div>;
+    return <div>{t("loading.copy.withData", { data: t("loading.labels.comments") })}</div>;
   }
 
   if (error) {
-    return <div>Error loading comments: {error.message}</div>;
+    return (
+      <div>
+        {t("comments.errors.load")} {error.message}
+      </div>
+    );
   }
 
   return (

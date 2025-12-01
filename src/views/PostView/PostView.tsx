@@ -1,4 +1,5 @@
 import { useParams, useNavigate } from "react-router";
+import { useTranslation } from "react-i18next";
 import { FaArrowLeft } from "react-icons/fa";
 import { usePost } from "hooks/posts/usePost";
 import Button from "components/ui/Button";
@@ -10,19 +11,28 @@ import CommentsSection from "views/PostView/components/CommentsSection";
 const PostView = () => {
   const { id: postId } = useParams();
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const { data: post, isLoading, error } = usePost(postId || "");
 
   if (isLoading) {
-    return <LoadingIndicator loadingMessage="Loading post..." />;
+    return (
+      <LoadingIndicator
+        loadingMessage={t("loading.copy.withData", { data: t("loading.labels.post") })}
+      />
+    );
   }
 
   if (error) {
-    return <div>Error loading posts: {error.message}</div>;
+    return (
+      <div>
+        {t("post.errors.load")} {error.message}
+      </div>
+    );
   }
 
   if (!post) {
-    return <NotFound message="Post not found" />;
+    return <NotFound message={t("notFound.copy.message")} />;
   }
 
   return (

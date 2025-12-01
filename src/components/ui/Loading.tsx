@@ -1,3 +1,5 @@
+import { useTranslation } from "react-i18next";
+
 type Size = "small" | "medium" | "large";
 
 const sizeValues = {
@@ -21,6 +23,7 @@ interface LoadingIndicatorProps {
 }
 
 const LoadingIndicator = ({ loadingMessage, size = "large" }: LoadingIndicatorProps) => {
+  const { t } = useTranslation();
   const strokeWidth = sizeValues[size].strokeWidth;
   const sizeValue = sizeValues[size].size;
   const radius = (sizeValues[size].size - strokeWidth * 2) / 2;
@@ -61,7 +64,7 @@ const LoadingIndicator = ({ loadingMessage, size = "large" }: LoadingIndicatorPr
           strokeLinecap="butt"
         />
       </svg>
-      <p className="mt-2 text-white">{loadingMessage || "Loading..."}</p>
+      <p className="mt-2 text-white">{loadingMessage || t("loading.copy.default")}</p>
     </div>
   );
 };

@@ -1,21 +1,26 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
+import type { TFunction } from "i18next";
 import RadioGroup from "./ui/RadioGroup/RadioGroup";
-import Select from "./ui/Select";
+//import Select from "./ui/Select";
 
 const OptionLabels = {
-  all: "Todos",
-  trending: "Populares",
-  following: "Seguidos",
+  all: "all",
+  trending: "trending",
+  following: "following",
 };
 
-const options = ["all", "trending", "following"].map((option) => ({
-  label: OptionLabels[option as keyof typeof OptionLabels],
-  name: OptionLabels[option as keyof typeof OptionLabels],
-  value: option.toLowerCase().replace(" ", "-"),
-}));
+const getOptions = (t: TFunction) => {
+  return Object.keys(OptionLabels).map((option) => {
+    const label = t(`posts.labels.${OptionLabels[option as keyof typeof OptionLabels]}`);
+    return { label: label, name: label, value: option };
+  });
+};
 
 const Filters = () => {
   const [filter, setFilter] = useState("all");
+  const { t } = useTranslation();
+  const options = getOptions(t);
 
   const handleFilterChange = (value: string) => {
     setFilter(value);
@@ -38,7 +43,7 @@ const Filters = () => {
           ))}
         </RadioGroup>
       </div>
-      <Select options={options} />
+      {/*       <Select options={options} /> */}
     </div>
   );
 };

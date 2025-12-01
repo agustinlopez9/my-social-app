@@ -12,7 +12,7 @@ const PostsList = () => {
     return (
       <LoadingIndicator
         loadingMessage={t("loading.copy.withData", {
-          data: t("loading.labels.posts"),
+          data: t("posts.labels.title"),
         })}
       />
     );

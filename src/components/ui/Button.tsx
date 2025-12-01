@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import LoadingIndicator from "./Loading";
 
 type ButtonVariant = "primary" | "secondary" | "outlined";
 type ButtonSize = "small" | "medium" | "large";
@@ -9,6 +10,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   iconPosition?: IconPosition;
   variant?: ButtonVariant;
   size?: ButtonSize;
+  loading?: boolean;
   children: ReactNode;
 }
 
@@ -17,6 +19,7 @@ const Button = ({
   iconPosition,
   variant = "primary",
   size = "medium",
+  loading,
   children,
   className = "",
   ...props
@@ -26,8 +29,14 @@ const Button = ({
       className={`flex ${iconPosition === "start" ? "flex-row" : "flex-row-reverse"} btn btn-${variant} btn-${size} ${className}`}
       {...props}
     >
-      {icon && <span className="flex items-center">{icon}</span>}
-      {children}
+      {loading ? (
+        <LoadingIndicator showMessage={false} size="small" />
+      ) : (
+        <>
+          {icon && <span className="flex items-center">{icon}</span>}
+          {children}
+        </>
+      )}
     </button>
   );
 };

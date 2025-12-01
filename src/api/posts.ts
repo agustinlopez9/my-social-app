@@ -6,7 +6,7 @@ export const postsApi = {
 
   getPost: (postId: string) => httpClient.get<Post>(`/post/${postId}`),
 
-  createPost: (content: string) => httpClient.post<Post>("/post", { content }),
+  createPost: (data: Partial<Post>) => httpClient.post<Post>("/post", data),
 
   deletePost: (postId: string) => httpClient.delete<void>(`/post/${postId}`),
 };

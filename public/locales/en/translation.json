@@ -41,10 +41,23 @@
     "labels": {
       "title": "Post",
       "createTitle": "Create a post",
+      "titlePlaceholder": "Enter a title...",
       "placeholder": "Share something new..."
     },
     "errors": {
-      "load": "Error loading post:"
+      "load": "Error loading post:",
+      "create": "Failed to create post"
+    },
+    "success": {
+      "created": "Post created successfully!"
+    },
+    "validation": {
+      "titleRequired": "Title is required",
+      "titleMinLength": "Title must be at least 3 characters",
+      "titleMaxLength": "Title cannot exceed 100 characters",
+      "contentRequired": "Post content is required",
+      "contentMinLength": "Post must have at least 1 character",
+      "contentMaxLength": "Post cannot exceed 500 characters"
     }
   },
   "comments": {
@@ -64,11 +77,6 @@
     }
   },
   "loading": {
-    "labels": {
-      "posts": "Posts",
-      "post": "Post",
-      "comments": "Comments"
-    },
     "copy": {
       "default": "Loading...",
       "withData": "Loading {{data}}..."

@@ -18,7 +18,7 @@ const PostView = () => {
   if (isLoading) {
     return (
       <LoadingIndicator
-        loadingMessage={t("loading.copy.withData", { data: t("loading.labels.post") })}
+        loadingMessage={t("loading.copy.withData", { data: t("post.labels.title").toLowerCase() })}
       />
     );
   }

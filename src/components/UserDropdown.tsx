@@ -1,8 +1,8 @@
 import { useTranslation } from "react-i18next";
+import { FaGear, FaArrowRightToBracket, FaEarthAmericas } from "react-icons/fa6";
+import { FaUser } from "react-icons/fa";
 import Avatar from "./ui/Avatar";
 import Dropdown, { type DropdownOption } from "./ui/Dropdown";
-import { FaGear, FaArrowRightToBracket, FaLanguage } from "react-icons/fa6";
-import { FaUser } from "react-icons/fa";
 import LanguageSelector from "./LanguageSelector";
 
 interface UserDropdownProps {
@@ -27,7 +27,7 @@ const UserDropdown = ({ avatar, name }: UserDropdownProps) => {
     {
       label: t("userMenu.labels.language"),
       onClick: () => {},
-      icon: <FaLanguage />,
+      icon: <FaEarthAmericas />,
       component: <LanguageSelector />,
     },
     {

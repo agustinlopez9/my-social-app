@@ -19,10 +19,11 @@ const sizeValues = {
 
 interface LoadingIndicatorProps {
   loadingMessage?: string;
+  showMessage?: boolean;
   size?: Size;
 }
 
-const LoadingIndicator = ({ loadingMessage, size = "large" }: LoadingIndicatorProps) => {
+const LoadingIndicator = ({ loadingMessage, showMessage = true, size = "large" }: LoadingIndicatorProps) => {
   const { t } = useTranslation();
   const strokeWidth = sizeValues[size].strokeWidth;
   const sizeValue = sizeValues[size].size;
@@ -32,7 +33,7 @@ const LoadingIndicator = ({ loadingMessage, size = "large" }: LoadingIndicatorPr
   const borderLength = circumference * 0.9;
 
   return (
-    <div className="flex flex-col items-center m-2">
+    <div className="flex flex-col items-center">
       <svg
         width={sizeValue}
         height={sizeValue}
@@ -64,7 +65,7 @@ const LoadingIndicator = ({ loadingMessage, size = "large" }: LoadingIndicatorPr
           strokeLinecap="butt"
         />
       </svg>
-      <p className="mt-2 text-white">{loadingMessage || t("loading.copy.default")}</p>
+      {showMessage ? <p className="mt-2 text-white">{loadingMessage || t("loading.copy.default")}</p> : null}
     </div>
   );
 };

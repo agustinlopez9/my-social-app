@@ -1,8 +1,10 @@
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import Comment from "./Comment";
-import type { Comment as CommentType } from "src/mockData";
+import type { Comment as CommentType } from "api/types";
 import { useComments } from "hooks/comments/useComments";
+import LoadingIndicator from "components/ui/Loading";
+import Error from "components/ui/Error";
 
 interface CommentsSectionProps {
   postId?: string;
@@ -57,15 +59,17 @@ const CommentsSection = ({ postId }: CommentsSectionProps) => {
   const topLevelComments = commentsByParentId.get(null) || [];
 
   if (isLoading) {
-    return <div>{t("loading.copy.withData", { data: t("loading.labels.comments") })}</div>;
+    return (
+      <LoadingIndicator
+        loadingMessage={t("loading.copy.withData", {
+          data: t("comments.labels.title").toLowerCase(),
+        })}
+      />
+    );
   }
 
   if (error) {
-    return (
-      <div>
-        {t("comments.errors.load")} {error.message}
-      </div>
-    );
+    return <Error message={t("comments.errors.load")} error={error} />;
   }
 
   return (

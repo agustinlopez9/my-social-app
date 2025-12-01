@@ -41,10 +41,23 @@
     "labels": {
       "title": "Publicación",
       "createTitle": "Crear una publicación",
+      "titlePlaceholder": "Ingresa un título...",
       "placeholder": "Comparte algo nuevo..."
     },
     "errors": {
-      "load": "Error al cargar la publicación:"
+      "load": "Error al cargar la publicación:",
+      "create": "Error al crear la publicación"
+    },
+    "success": {
+      "created": "¡Publicación creada con éxito!"
+    },
+    "validation": {
+      "titleRequired": "El título es obligatorio",
+      "titleMinLength": "El título debe tener al menos 3 caracteres",
+      "titleMaxLength": "El título no puede exceder los 100 caracteres",
+      "contentRequired": "El contenido de la publicación es obligatorio",
+      "contentMinLength": "La publicación debe tener al menos 1 carácter",
+      "contentMaxLength": "La publicación no puede exceder los 500 caracteres"
     }
   },
   "comments": {
@@ -64,11 +77,6 @@
     }
   },
   "loading": {
-    "labels": {
-      "posts": "Publicaciones",
-      "post": "Publicación",
-      "comments": "Comentarios"
-    },
     "copy": {
       "default": "Cargando...",
       "withData": "Cargando {{data}}..."

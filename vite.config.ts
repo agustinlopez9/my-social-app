@@ -18,6 +18,7 @@ export default defineConfig({
       lib: path.resolve(__dirname, './src/lib'),
       api: path.resolve(__dirname, './src/api'),
       theme: path.resolve(__dirname, './src/theme'),
+      context: path.resolve(__dirname, './src/context'),
     },
   },
 })

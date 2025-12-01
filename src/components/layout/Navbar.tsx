@@ -1,7 +1,10 @@
 import { Link } from "react-router";
+import { useAuth } from "context/AuthContext";
 import UserDropdown from "components/UserDropdown";
 
 const Navbar = () => {
+  const { user } = useAuth();
+
   return (
     <div className="fixed block bg-surface-navbar w-full z-50 top-0 shadow-md">
       <nav className="flex flex-row justify-between items-center mx-auto max-w-5xl bg-surface-navbar px-4 py-2 text-primary">
@@ -13,7 +16,7 @@ const Navbar = () => {
             Up!
           </h1>
         </Link>
-        <UserDropdown name="Agustin Lopez" avatar="/avatar.png" />
+        {user && <UserDropdown name={user.name} avatar={user.avatar} />}
       </nav>
     </div>
   );

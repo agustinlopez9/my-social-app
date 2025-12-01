@@ -1,3 +1,5 @@
+import type { User } from "./types/user";
+
 export interface Post {
   id: string;
   createdAt: string;
@@ -63,6 +65,11 @@ export const posts: Post[] = [
       "Les comparto algunas técnicas que uso: lazy loading de imágenes, code splitting, memorización de componentes, y debouncing en inputs de búsqueda. Cada milisegundo cuenta.",
   },
 ];
+
+export const mockUser: User = {
+  name: "Agustin Lopez",
+  avatar: "/avatar.png",
+};
 
 export const comments: Comment[] = [
   {

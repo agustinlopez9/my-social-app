@@ -15,7 +15,14 @@
       "edit": "Editar",
       "publish": "Publicar",
       "report": "Reportar",
-      "hide": "Ocultar"
+      "hide": "Ocultar",
+      "login": "Iniciar sesión",
+      "signup": "Registrarse"
+    }
+  },
+  "loginView": {
+    "copy": {
+      "welcome": "¡Bienvenido de nuevo! Por favor, inicia sesión en tu cuenta."
     }
   },
   "userMenu": {

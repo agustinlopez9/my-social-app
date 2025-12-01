@@ -1,6 +1,8 @@
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router";
 import { FaGear, FaArrowRightToBracket, FaEarthAmericas } from "react-icons/fa6";
 import { FaUser } from "react-icons/fa";
+import { useAuth } from "context/AuthContext";
 import Avatar from "./ui/Avatar";
 import Dropdown, { type DropdownOption } from "./ui/Dropdown";
 import LanguageSelector from "./LanguageSelector";
@@ -12,6 +14,13 @@ interface UserDropdownProps {
 
 const UserDropdown = ({ avatar, name }: UserDropdownProps) => {
   const { t } = useTranslation();
+  const { logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate("/login");
+  };
 
   const profileOptions: DropdownOption[] = [
     {
@@ -32,7 +41,7 @@ const UserDropdown = ({ avatar, name }: UserDropdownProps) => {
     },
     {
       label: t("userMenu.labels.logout"),
-      onClick: () => console.log("Logout clicked"),
+      onClick: handleLogout,
       icon: <FaArrowRightToBracket />,
     },
   ];

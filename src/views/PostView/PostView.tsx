@@ -9,9 +9,9 @@ import Post from "components/Post/Post";
 import CommentsSection from "views/PostView/components/CommentsSection";
 
 const PostView = () => {
+  const { t } = useTranslation();
   const { id: postId } = useParams();
   const navigate = useNavigate();
-  const { t } = useTranslation();
 
   const { data: post, isLoading, error } = usePost(postId || "");
 

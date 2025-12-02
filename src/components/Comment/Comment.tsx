@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { FaPen, FaEllipsisV } from "react-icons/fa";
+import { FaPen, FaTrash, FaEllipsisV } from "react-icons/fa";
 import type { Comment as CommentType } from "api/types";
 import Avatar from "components/ui/Avatar";
 import Dropdown from "components/ui/Dropdown";
@@ -8,6 +8,7 @@ import CreateCommentForm from "../CommentForm/CreateCommentForm";
 import EditCommentForm from "../CommentForm/EditCommentForm";
 import CommentFooter from "./CommentFooter";
 import { getRelativeTimeFromDate } from "utils/utils";
+import { useDeleteComment } from "src/hooks/comments/useDeleteComment";
 
 interface CommentProps {
   postId: string;
@@ -19,6 +20,7 @@ const Comment = ({ postId, parentId, comment }: CommentProps) => {
   const [isEditing, setIsEditing] = useState(false);
   const [isReplying, setIsReplying] = useState(false);
   const { t } = useTranslation();
+  const deleteComment = useDeleteComment();
 
   const { id: commentId, avatar, name, createdAt, content } = comment;
   const commentDate = new Date(createdAt).toLocaleString();
@@ -41,11 +43,20 @@ const Comment = ({ postId, parentId, comment }: CommentProps) => {
     setIsReplying(false);
   };
 
+  const handleDelete = async () => {
+    deleteComment.mutate({ postId, commentId });
+  };
+
   const options = [
     {
       label: t("common.actions.edit"),
       onClick: handleEdit,
       icon: <FaPen />,
+    },
+    {
+      label: t("common.actions.delete"),
+      onClick: () => handleDelete(),
+      icon: <FaTrash />,
     },
   ];
 

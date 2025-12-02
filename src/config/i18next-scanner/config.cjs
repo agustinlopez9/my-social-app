@@ -4,11 +4,11 @@ const baseOptions = require("./baseOptions.cjs");
 const options = Object.assign(baseOptions, {
   defaultNs: "translation",
   lngs: ["en", "es"],
-  ns: ["translation"]
+  ns: ["translation"],
 });
 
 module.exports = {
   input: ["src/**/*.{ts,tsx}"],
   options,
-  transform: customTransform
+  transform: customTransform,
 };

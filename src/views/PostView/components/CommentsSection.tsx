@@ -4,9 +4,9 @@ import type { Comment as CommentType } from "api/types";
 import { useComments } from "hooks/comments/useComments";
 import LoadingIndicator from "components/ui/Loading";
 import Error from "components/ui/Error";
+import CreateCommentForm from "components/CommentForm/CreateCommentForm";
+import Comment from "components/Comment/Comment";
 import CommentTreeBranch from "./TreeBranch";
-import CreateCommentForm from "./CreateCommentForm";
-import Comment from "./Comment";
 
 interface CommentsSectionProps {
   postId?: string;

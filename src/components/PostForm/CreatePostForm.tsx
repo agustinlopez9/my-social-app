@@ -3,10 +3,10 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { useCreatePost } from "hooks/posts/useCreatePost";
-import PostFormFields from "../PostForm";
+import PostFormFields from ".";
 import { validationSchema, type CreatePostFormData } from "./utils";
 
-const CreatePost = () => {
+const CreatePostForm = () => {
   const { t } = useTranslation();
   const createPost = useCreatePost();
 
@@ -48,4 +48,4 @@ const CreatePost = () => {
   );
 };
 
-export default CreatePost;
+export default CreatePostForm;

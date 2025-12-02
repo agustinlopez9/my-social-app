@@ -1,12 +1,12 @@
 import Filters from "components/Filters";
-import CreatePost from "components/CreatePost/CreatePost";
+import CreatePostForm from "components/PostForm/CreatePostForm";
 import PostsList from "./PostsList";
 
 const MainView = () => {
   return (
     <>
       <div className="flex flex-col">
-        <CreatePost />
+        <CreatePostForm />
         <Filters />
         <PostsList />
       </div>

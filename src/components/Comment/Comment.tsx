@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { FaPen, FaEllipsisV } from "react-icons/fa";
+import type { Comment as CommentType } from "api/types";
 import Avatar from "components/ui/Avatar";
 import Dropdown from "components/ui/Dropdown";
-import CreateCommentForm from "./CreateCommentForm";
-import EditCommentForm from "./EditCommentForm";
-import type { Comment as CommentType } from "api/types";
-import { getRelativeTimeFromDate } from "utils/utils";
+import CreateCommentForm from "../CommentForm/CreateCommentForm";
+import EditCommentForm from "../CommentForm/EditCommentForm";
 import CommentFooter from "./CommentFooter";
+import { getRelativeTimeFromDate } from "utils/utils";
 
 interface CommentProps {
   postId: string;

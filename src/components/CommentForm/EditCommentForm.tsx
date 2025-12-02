@@ -3,8 +3,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useTranslation } from "react-i18next";
 import toast from "react-hot-toast";
 import { useEditComment } from "hooks/comments/useEditComment";
-import CommentFormFields from "components/CommentForm";
-import { validationSchema, type CreateEditCommentFormData } from "./utils";
+import CommentFormFields from "components/CommentForm/CommentFormFields";
+import { validationSchema, type CreateEditCommentFormData } from "components/CommentForm/utils";
 
 interface EditCommentFormProps {
   postId: string;

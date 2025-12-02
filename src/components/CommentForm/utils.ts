@@ -1,6 +1,6 @@
 import * as yup from "yup";
 
-export type { CommentFormData } from "components/CommentForm";
+export type { CommentFormData } from "components/CommentForm/types";
 
 export interface CreateEditCommentFormData {
   content: string;

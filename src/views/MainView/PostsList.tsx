@@ -1,8 +1,7 @@
-//import { posts } from "../../mockData";
 import { useTranslation } from "react-i18next";
+import { usePosts } from "hooks/posts/usePosts";
 import LoadingIndicator from "components/ui/Loading";
 import UserPost from "components/UserPost";
-import { usePosts } from "hooks/posts/usePosts";
 
 const PostsList = () => {
   const { t } = useTranslation();

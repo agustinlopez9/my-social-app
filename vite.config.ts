@@ -21,4 +21,5 @@ export default defineConfig({
       context: path.resolve(__dirname, './src/context'),
     },
   },
+  base: '/my-social-app',
 })

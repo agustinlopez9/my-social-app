@@ -14,7 +14,7 @@ i18n
       escapeValue: false, // react already safes from xss
     },
     backend: {
-      loadPath: "/locales/{{lng}}/translation.json",
+      loadPath: "/my-social-app/locales/{{lng}}/translation.json",
     },
     detection: {
       order: ["localStorage", "navigator"],

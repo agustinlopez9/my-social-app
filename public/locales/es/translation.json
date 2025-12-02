@@ -77,10 +77,12 @@
     },
     "errors": {
       "load": "Error al cargar los comentarios:",
-      "create": "Error al crear el comentario"
+      "create": "Error al crear el comentario",
+      "edit": "Error al actualizar el comentario"
     },
     "copy": {
-      "created": "¡Comentario agregado con éxito!"
+      "created": "¡Comentario agregado con éxito!",
+      "edited": "¡Comentario actualizado exitosamente!"
     },
     "validation": {
       "contentRequired": "El contenido del comentario es obligatorio",

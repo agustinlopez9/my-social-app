@@ -66,7 +66,7 @@ body {
   }
 
   .btn-outlined:hover {
-    @apply bg-brand text-primary border-interactive;
+    @apply bg-brand text-primary border-border-interactive;
   }
 
   .btn-small {

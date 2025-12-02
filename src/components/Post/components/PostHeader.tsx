@@ -3,6 +3,7 @@ import { usePostContext } from "../context";
 import Avatar from "components/ui/Avatar";
 import Dropdown from "components/ui/Dropdown";
 import { getRelativeTimeFromDate } from "utils/utils";
+import { useTranslation } from "react-i18next";
 
 interface PostHeaderProps {
   postId: string;
@@ -12,7 +13,9 @@ interface PostHeaderProps {
 }
 
 const PostHeader = ({ postId, avatar, name, createdAt }: PostHeaderProps) => {
-  const { setIsEditing } = usePostContext();
+  const { t } = useTranslation();
+  const { setIsEditing, editable } = usePostContext();
+
   const handleMenuClick = (action: string) => {
     console.log(`${action} clicked`);
   };
@@ -22,6 +25,32 @@ const PostHeader = ({ postId, avatar, name, createdAt }: PostHeaderProps) => {
   };
 
   // TODO: Hide EDIT and DELETE options for non-author users, show REPORT and HIDE instead
+  const options = editable
+    ? [
+        {
+          label: t("common.actions.edit"),
+          onClick: () => setIsEditing(true),
+          icon: <FaPen />,
+        },
+        {
+          label: t("common.actions.delete"),
+          onClick: () => handleDelete(),
+          icon: <FaTrash />,
+        },
+      ]
+    : [
+        {
+          label: t("common.actions.report"),
+          onClick: () => handleMenuClick("report"),
+          icon: <FaFlag />,
+        },
+        {
+          label: t("common.actions.hide"),
+          onClick: () => handleMenuClick("hide"),
+          icon: <FaEyeSlash />,
+        },
+      ];
+
   return (
     <div className="flex flex-row justify-between items-center w-full">
       <Avatar
@@ -33,28 +62,7 @@ const PostHeader = ({ postId, avatar, name, createdAt }: PostHeaderProps) => {
         direction="column"
       />
       <Dropdown
-        options={[
-          {
-            label: "Editar",
-            onClick: () => setIsEditing(true),
-            icon: <FaPen />,
-          },
-          {
-            label: "Borrar",
-            onClick: () => handleDelete(),
-            icon: <FaTrash />,
-          },
-          {
-            label: "Reportar",
-            onClick: () => handleMenuClick("report"),
-            icon: <FaFlag />,
-          },
-          {
-            label: "Ocultar",
-            onClick: () => handleMenuClick("hide"),
-            icon: <FaEyeSlash />,
-          },
-        ]}
+        options={options}
         trigger={
           <FaEllipsisV className="w-3 text-tertiary cursor-pointer hover:text-primary transition-colors" />
         }

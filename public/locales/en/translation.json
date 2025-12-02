@@ -77,10 +77,12 @@
     },
     "errors": {
       "load": "Error loading comments:",
-      "create": "Failed to create comment"
+      "create": "Failed to create comment",
+      "edit": "Failed to update comment"
     },
     "copy": {
-      "created": "Comment added successfully!"
+      "created": "Comment added successfully!",
+      "edited": "Comment updated successfully!"
     },
     "validation": {
       "contentRequired": "Comment content is required",

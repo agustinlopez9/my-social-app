@@ -5,19 +5,20 @@ import { useComments } from "hooks/comments/useComments";
 import LoadingIndicator from "components/ui/Loading";
 import Error from "components/ui/Error";
 import CommentTreeBranch from "./TreeBranch";
+import CommentForm from "./CommentForm";
 import Comment from "./Comment";
-import CommentBox from "./CommentBox";
 
 interface CommentsSectionProps {
   postId?: string;
 }
 
 interface ResponseCommentProps {
+  postId: string;
   commentsByParentId: Map<string | null, CommentType[]>;
   parentId: string | null;
 }
 
-const ResponseComment = ({ commentsByParentId, parentId }: ResponseCommentProps) => {
+const ResponseComment = ({ postId, commentsByParentId, parentId }: ResponseCommentProps) => {
   const responseComments = commentsByParentId.get(parentId);
 
   if (!responseComments || !responseComments.length) return null;
@@ -29,8 +30,12 @@ const ResponseComment = ({ commentsByParentId, parentId }: ResponseCommentProps)
         return (
           <div key={comment.id} className="relative">
             <CommentTreeBranch isLast={isLast} />
-            <Comment comment={comment} />
-            <ResponseComment commentsByParentId={commentsByParentId} parentId={comment.id} />
+            <Comment postId={postId} parentId={parentId} comment={comment} />
+            <ResponseComment
+              postId={postId}
+              commentsByParentId={commentsByParentId}
+              parentId={comment.id}
+            />
           </div>
         );
       })}
@@ -77,14 +82,18 @@ const CommentsSection = ({ postId }: CommentsSectionProps) => {
   return (
     <>
       <div className="bg-surface-primary border border-border-subtle rounded-sm m-2 mt-4 p-4">
-        <CommentBox postId={postId} />
+        <CommentForm postId={postId} />
       </div>
       {!error ? (
         <div className="bg-surface-primary rounded-sm p-2 m-2 mt-6 border border-border-subtle overflow-x-scroll">
           {topLevelComments.map((comment) => (
             <div key={comment.id}>
-              <Comment comment={comment} />
-              <ResponseComment commentsByParentId={commentsByParentId} parentId={comment.id} />
+              <Comment postId={postId || ""} parentId={null} comment={comment} />
+              <ResponseComment
+                postId={postId || ""}
+                commentsByParentId={commentsByParentId}
+                parentId={comment.id}
+              />
             </div>
           ))}
         </div>

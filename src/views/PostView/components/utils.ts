@@ -1,6 +1,8 @@
 import * as yup from "yup";
 
-export interface CreateCommentFormData {
+export type { CommentFormData } from "components/CommentForm";
+
+export interface CreateEditCommentFormData {
   content: string;
   postId: string;
   parentId: string | null;
@@ -17,4 +19,4 @@ export const validationSchema = yup.object({
   parentId: yup.string().nullable().defined(),
 });
 
-export type CreateCommentValidated = yup.InferType<typeof validationSchema>;
+export type CreateEditCommentValidated = yup.InferType<typeof validationSchema>;

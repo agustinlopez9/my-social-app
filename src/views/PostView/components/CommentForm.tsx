@@ -3,16 +3,15 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useTranslation } from "react-i18next";
 import toast from "react-hot-toast";
 import { useCreateComment } from "hooks/comments/useCreateComment";
-import FormTextArea from "components/formComponents/FormTextArea";
-import Button from "components/ui/Button";
-import { validationSchema, type CreateCommentFormData } from "./utils";
+import CommentFormFields from "components/CommentForm";
+import { validationSchema, type CreateEditCommentFormData } from "./utils";
 
-interface CommentBoxProps {
+interface CommentFormProps {
   postId?: string;
   parentCommentId?: string;
 }
 
-const CommentBox = ({ postId, parentCommentId }: CommentBoxProps) => {
+const CommentForm = ({ postId, parentCommentId }: CommentFormProps) => {
   const { t } = useTranslation();
   const createComment = useCreateComment();
 
@@ -21,7 +20,7 @@ const CommentBox = ({ postId, parentCommentId }: CommentBoxProps) => {
     handleSubmit,
     reset,
     formState: { errors, isSubmitting },
-  } = useForm<CreateCommentFormData>({
+  } = useForm<CreateEditCommentFormData>({
     resolver: yupResolver(validationSchema),
     reValidateMode: "onSubmit",
     defaultValues: {
@@ -31,7 +30,7 @@ const CommentBox = ({ postId, parentCommentId }: CommentBoxProps) => {
     },
   });
 
-  const onSubmit = async (data: CreateCommentFormData) => {
+  const onSubmit = async (data: CreateEditCommentFormData) => {
     try {
       await createComment.mutateAsync(data);
       reset();
@@ -42,26 +41,15 @@ const CommentBox = ({ postId, parentCommentId }: CommentBoxProps) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
       <p className="text-primary font-semibold mb-3">{t("comments.labels.createTitle")}</p>
-      <FormTextArea
-        {...register("content")}
-        placeholder={t("comments.labels.placeholder")}
-        error={errors.content?.message ? t(errors.content.message) : undefined}
+      <CommentFormFields
+        register={register}
+        errors={errors}
+        isSubmittingOrPending={isSubmitting || createComment.isPending}
       />
-      <div className="flex justify-end">
-        <Button
-          type="submit"
-          loading={createComment.isPending}
-          disabled={isSubmitting || createComment.isPending}
-          variant="primary"
-          className="mt-2 mb-6"
-        >
-          {t("common.actions.publish")}
-        </Button>
-      </div>
     </form>
   );
 };
 
-export default CommentBox;
+export default CommentForm;

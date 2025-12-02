@@ -3,6 +3,7 @@ import { createContext, useContext } from "react";
 export interface PostContextValue {
   isEditing: boolean;
   setIsEditing: (isEditing: boolean) => void;
+  editable: boolean;
 }
 
 export const PostContext = createContext<PostContextValue | undefined>(undefined);

@@ -6,13 +6,14 @@ import PostContent from "./components/PostContent";
 
 interface PostProps extends PropsWithChildren {
   enableHover?: boolean;
+  editable?: boolean;
 }
 
-const PostRoot = ({ enableHover = true, children }: PostProps) => {
+const PostRoot = ({ enableHover = true, editable = true, children }: PostProps) => {
   const [isEditing, setIsEditing] = useState(false);
 
   return (
-    <PostContext.Provider value={{ isEditing, setIsEditing }}>
+    <PostContext.Provider value={{ isEditing, setIsEditing, editable }}>
       <div
         className={`relative text-primary border bg-surface-primary border-border-subtle ${enableHover ? "hover:border-border-interactive" : ""} p-4 m-2 rounded-sm transition ease-in-out duration-200 shadow-sm`}
       >

@@ -17,7 +17,7 @@ const UserPost = ({ post }: UserPostProps) => {
 
   return (
     <div onClick={handlePostClick} className="block cursor-pointer">
-      <Post>
+      <Post editable={false}>
         <Post.Header postId={id} avatar={avatar} name={name} createdAt={createdAt} />
         <Post.Content title={title} content={content} />
         <Post.Footer handleCommentClick={handlePostClick} />

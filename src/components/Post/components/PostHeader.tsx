@@ -4,15 +4,22 @@ import Dropdown from "components/ui/Dropdown";
 import { getRelativeTimeFromDate } from "utils/utils";
 
 interface PostHeaderProps {
+  postId: string;
   avatar: string;
   name: string;
   createdAt: string;
 }
 
-const PostHeader = ({ avatar, name, createdAt }: PostHeaderProps) => {
+const PostHeader = ({ postId, avatar, name, createdAt }: PostHeaderProps) => {
   const handleMenuClick = (action: string) => {
     console.log(`${action} clicked`);
   };
+
+  const handleDelete = () => {
+    console.log("Delete action triggered", postId);
+  };
+
+  // TODO: Hide EDIT and DELETE options for non-author users, show REPORT and HIDE instead
   return (
     <div className="flex flex-row justify-between items-center w-full">
       <Avatar
@@ -32,7 +39,7 @@ const PostHeader = ({ avatar, name, createdAt }: PostHeaderProps) => {
           },
           {
             label: "Borrar",
-            onClick: () => handleMenuClick("delete"),
+            onClick: () => handleDelete(),
             icon: <FaTrash />,
           },
           {

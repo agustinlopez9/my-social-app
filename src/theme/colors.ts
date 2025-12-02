@@ -34,7 +34,7 @@ export const colors = {
     900: { hex: "#7c2d12", tw: "orange-900" },
   },
 
-  // Neutral Colors (Zinc/Gray)
+  // Dark Neutral Colors (Combination of Zinc/Gray)
   neutral: {
     50: { hex: "#fafafa", tw: "zinc-50" },
     100: { hex: "#f4f4f5", tw: "zinc-100" },
@@ -55,7 +55,7 @@ export const colors = {
     primary: { hex: "#3f3f46", tw: "zinc-700" },
     secondary: { hex: "#27272a", tw: "zinc-800" },
     elevated: { hex: "#52525b", tw: "zinc-600" },
-    navbar: { hex: "#09090b", tw: "zinc-950" },
+    navbar: { hex: "#1a1a1d", tw: "neutral-950" },
     input: { hex: "#52525b", tw: "zinc-600" },
   },
 

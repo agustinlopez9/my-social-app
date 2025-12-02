@@ -1,12 +1,12 @@
 import { useTranslation } from "react-i18next";
-import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { useCreatePost } from "hooks/posts/useCreatePost";
-import { validationSchema, type CreatePostFormData } from "./validationSchema";
 import Button from "../ui/Button";
 import FormInput from "../formComponents/FormInput";
 import FormTextArea from "../formComponents/FormTextArea";
+import { validationSchema, type CreatePostFormData } from "./utils";
 
 const CreatePost = () => {
   const { t } = useTranslation();
@@ -30,7 +30,7 @@ const CreatePost = () => {
     try {
       await createPost.mutateAsync(data);
       reset();
-      toast.success(t("post.success.created"));
+      toast.success(t("post.copy.created"));
     } catch {
       toast.error(t("post.errors.create"));
     }

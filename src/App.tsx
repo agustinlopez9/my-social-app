@@ -12,7 +12,7 @@ function App() {
     <AuthProvider>
       <QueryClientProvider client={queryClient}>
         <Toaster
-          position="top-right"
+          position="bottom-right"
           toastOptions={{
             duration: 3000,
             style: {

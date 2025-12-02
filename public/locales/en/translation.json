@@ -55,7 +55,7 @@
       "load": "Error loading post:",
       "create": "Failed to create post"
     },
-    "success": {
+    "copy": {
       "created": "Post created successfully!"
     },
     "validation": {
@@ -69,10 +69,21 @@
   },
   "comments": {
     "labels": {
-      "title": "Comments"
+      "title": "Comments",
+      "createTitle": "Add a comment",
+      "placeholder": "Write your comment here..."
     },
     "errors": {
-      "load": "Error loading comments:"
+      "load": "Error loading comments:",
+      "create": "Failed to create comment"
+    },
+    "copy": {
+      "created": "Comment added successfully!"
+    },
+    "validation": {
+      "contentRequired": "Comment content is required",
+      "contentMinLength": "Comment must have at least 1 character",
+      "contentMaxLength": "Comment cannot exceed 300 characters"
     }
   },
   "notFound": {

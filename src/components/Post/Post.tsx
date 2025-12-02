@@ -3,9 +3,15 @@ import PostHeader from "./components/PostHeader";
 import PostFooter from "./components/PostFooter";
 import PostContent from "./components/PostContent";
 
-const PostRoot = ({ children }: PropsWithChildren) => {
+interface PostProps extends PropsWithChildren {
+  enableHover?: boolean;
+}
+
+const PostRoot = ({ enableHover = true, children }: PostProps) => {
   return (
-    <div className="relative text-primary border bg-surface-primary border-border-subtle hover:border-border-interactive p-4 m-2 rounded-sm transition ease-in-out duration-200 shadow-sm">
+    <div
+      className={`relative text-primary border bg-surface-primary border-border-subtle ${enableHover ? "hover:border-border-interactive" : ""} p-4 m-2 rounded-sm transition ease-in-out duration-200 shadow-sm`}
+    >
       {children}
     </div>
   );

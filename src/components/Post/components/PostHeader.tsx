@@ -1,4 +1,5 @@
 import { FaEllipsisV, FaPen, FaTrash, FaFlag, FaEyeSlash } from "react-icons/fa";
+import { usePostContext } from "../context";
 import Avatar from "components/ui/Avatar";
 import Dropdown from "components/ui/Dropdown";
 import { getRelativeTimeFromDate } from "utils/utils";
@@ -11,6 +12,7 @@ interface PostHeaderProps {
 }
 
 const PostHeader = ({ postId, avatar, name, createdAt }: PostHeaderProps) => {
+  const { setIsEditing } = usePostContext();
   const handleMenuClick = (action: string) => {
     console.log(`${action} clicked`);
   };
@@ -34,7 +36,7 @@ const PostHeader = ({ postId, avatar, name, createdAt }: PostHeaderProps) => {
         options={[
           {
             label: "Editar",
-            onClick: () => handleMenuClick("edit"),
+            onClick: () => setIsEditing(true),
             icon: <FaPen />,
           },
           {

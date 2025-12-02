@@ -1,15 +1,28 @@
-import { FaRegComment } from "react-icons/fa";
+import { FaRegHeart, FaRegComment } from "react-icons/fa";
 
 interface PostFooterProps {
   commentsCount?: number;
+  handleCommentClick?: () => void;
 }
 
-const PostFooter = ({ commentsCount }: PostFooterProps) => {
+const PostFooter = ({ commentsCount, handleCommentClick }: PostFooterProps) => {
+  const handleLike = () => {
+    // TODO: Logic to handle liking the post
+    console.log("Post liked!");
+  };
+
   return (
     <>
       <div className="border border-border-default my-4" />
-      <div className="flex flex-row items-center gap-1">
-        <FaRegComment className="w-4 my-2" />
+      <div className="flex flex-row items-center gap-3">
+        <button className="hover:bg-surface-elevated rounded-full px-2 cursor-pointer transition-colors">
+          <FaRegHeart onClick={handleLike} className="w-4 my-2" />
+        </button>
+        {handleCommentClick && (
+          <button className="hover:bg-surface-elevated rounded-full px-2 cursor-pointer transition-colors">
+            <FaRegComment onClick={handleCommentClick} className="w-4 my-2" />
+          </button>
+        )}
         {commentsCount}
       </div>
     </>

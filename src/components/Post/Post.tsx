@@ -1,4 +1,5 @@
-import type { PropsWithChildren } from "react";
+import { useState, type PropsWithChildren } from "react";
+import { PostContext } from "./context";
 import PostHeader from "./components/PostHeader";
 import PostFooter from "./components/PostFooter";
 import PostContent from "./components/PostContent";
@@ -8,12 +9,16 @@ interface PostProps extends PropsWithChildren {
 }
 
 const PostRoot = ({ enableHover = true, children }: PostProps) => {
+  const [isEditing, setIsEditing] = useState(false);
+
   return (
-    <div
-      className={`relative text-primary border bg-surface-primary border-border-subtle ${enableHover ? "hover:border-border-interactive" : ""} p-4 m-2 rounded-sm transition ease-in-out duration-200 shadow-sm`}
-    >
-      {children}
-    </div>
+    <PostContext.Provider value={{ isEditing, setIsEditing }}>
+      <div
+        className={`relative text-primary border bg-surface-primary border-border-subtle ${enableHover ? "hover:border-border-interactive" : ""} p-4 m-2 rounded-sm transition ease-in-out duration-200 shadow-sm`}
+      >
+        {children}
+      </div>
+    </PostContext.Provider>
   );
 };
 

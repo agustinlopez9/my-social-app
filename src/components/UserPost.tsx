@@ -20,7 +20,7 @@ const UserPost = ({ post }: UserPostProps) => {
       <Post>
         <Post.Header postId={id} avatar={avatar} name={name} createdAt={createdAt} />
         <Post.Content title={title} content={content} />
-        <Post.Footer />
+        <Post.Footer handleCommentClick={handlePostClick} />
       </Post>
     </div>
   );

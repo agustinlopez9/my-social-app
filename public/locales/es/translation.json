@@ -53,10 +53,12 @@
     },
     "errors": {
       "load": "Error al cargar la publicación:",
-      "create": "Error al crear la publicación"
+      "create": "Error al crear la publicación",
+      "edit": "Error al actualizar la publicación"
     },
     "copy": {
-      "created": "¡Publicación creada con éxito!"
+      "created": "¡Publicación creada con éxito!",
+      "edited": "¡Publicación actualizada exitosamente!"
     },
     "validation": {
       "titleRequired": "El título es obligatorio",

@@ -1,6 +1,6 @@
 import * as yup from "yup";
 
-export type { PostFormData as CreatePostFormData } from "components/PostForm";
+export type { PostFormData as EditPostFormData } from "components/PostForm";
 
 export const validationSchema = yup.object({
   title: yup
@@ -17,4 +17,4 @@ export const validationSchema = yup.object({
     .trim(),
 });
 
-export type CreatePostValidated = yup.InferType<typeof validationSchema>;
+export type EditPostValidated = yup.InferType<typeof validationSchema>;

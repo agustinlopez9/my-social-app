@@ -53,10 +53,12 @@
     },
     "errors": {
       "load": "Error loading post:",
-      "create": "Failed to create post"
+      "create": "Failed to create post",
+      "edit": "Failed to update post"
     },
     "copy": {
-      "created": "Post created successfully!"
+      "created": "Post created successfully!",
+      "edited": "Post updated successfully!"
     },
     "validation": {
       "titleRequired": "Title is required",

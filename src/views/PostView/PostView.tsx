@@ -56,7 +56,7 @@ const PostView = () => {
           name={post.name}
           createdAt={post.createdAt}
         />
-        <Post.Content title={post.title} content={post.content} />
+        <Post.Content postId={post.id} title={post.title} content={post.content} />
         <Post.Footer />
       </Post>
 

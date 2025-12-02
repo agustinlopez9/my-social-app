@@ -6,7 +6,7 @@ const CommentTreeBranch = ({ isLast }: CommentTreeBranchProps) => {
   return (
     <div
       className={`absolute -left-4 w-4 border-l border-border-default ${
-        isLast ? "h-10 border-transparent" : "h-full"
+        isLast ? "h-10 border-transparent" : "h-[calc(100%+0.5rem)]"
       }`}
     >
       {isLast ? (

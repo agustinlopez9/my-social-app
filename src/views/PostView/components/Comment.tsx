@@ -1,16 +1,13 @@
 import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
 import { useTranslation } from "react-i18next";
-import toast from "react-hot-toast";
 import { FaPen, FaEllipsisV } from "react-icons/fa";
-import { useEditComment } from "hooks/comments/useEditComment";
 import Avatar from "components/ui/Avatar";
 import Dropdown from "components/ui/Dropdown";
-import CommentFormFields from "components/CommentForm";
+import CreateCommentForm from "./CreateCommentForm";
+import EditCommentForm from "./EditCommentForm";
 import type { Comment as CommentType } from "api/types";
 import { getRelativeTimeFromDate } from "utils/utils";
-import { validationSchema, type CreateEditCommentFormData } from "./utils";
+import CommentFooter from "./CommentFooter";
 
 interface CommentProps {
   postId: string;
@@ -19,52 +16,41 @@ interface CommentProps {
 }
 
 const Comment = ({ postId, parentId, comment }: CommentProps) => {
-  const { id: commentId, avatar, name, createdAt, content } = comment;
-  const { t } = useTranslation();
   const [isEditing, setIsEditing] = useState(false);
-  const editComment = useEditComment();
+  const [isReplying, setIsReplying] = useState(false);
+  const { t } = useTranslation();
+
+  const { id: commentId, avatar, name, createdAt, content } = comment;
   const commentDate = new Date(createdAt).toLocaleString();
 
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors, isSubmitting },
-  } = useForm<CreateEditCommentFormData>({
-    resolver: yupResolver(validationSchema),
-    reValidateMode: "onSubmit",
-    defaultValues: {
-      postId: postId,
-      parentId: parentId,
-      content: content,
-    },
-  });
-
-  const onSubmit = async (data: CreateEditCommentFormData) => {
-    try {
-      await editComment.mutateAsync({ postId, commentId, content: data.content });
-      setIsEditing(false);
-      toast.success(t("comments.copy.edited"));
-    } catch {
-      toast.error(t("comments.errors.edit"));
-    }
+  const handleEdit = () => {
+    if (isReplying) setIsReplying(false);
+    setIsEditing(true);
   };
 
-  const handleCancel = () => {
-    reset();
+  const handleReply = () => {
+    if (isEditing) setIsEditing(false);
+    setIsReplying(true);
+  };
+
+  const handleCloseEdit = () => {
     setIsEditing(false);
+  };
+
+  const handleCloseReply = () => {
+    setIsReplying(false);
   };
 
   const options = [
     {
       label: t("common.actions.edit"),
-      onClick: () => setIsEditing(true),
+      onClick: handleEdit,
       icon: <FaPen />,
     },
   ];
 
   return (
-    <div className="bg-surface-secondary rounded-lg p-4 border border-border-subtle mb-2 min-w-48">
+    <div className="bg-surface-secondary rounded-lg p-4 border border-border-subtle min-w-48 mb-2">
       <div className="flex flex-row justify-between">
         <Avatar
           src={avatar}
@@ -82,16 +68,32 @@ const Comment = ({ postId, parentId, comment }: CommentProps) => {
         />
       </div>
       {isEditing ? (
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-3 mt-2">
-          <CommentFormFields
-            register={register}
-            errors={errors}
-            handleCancel={handleCancel}
-            isSubmittingOrPending={isSubmitting || editComment.isPending}
-          />
-        </form>
+        <EditCommentForm
+          postId={postId}
+          commentId={commentId}
+          initialContent={content}
+          parentId={parentId}
+          onCancel={handleCloseEdit}
+          onSuccess={handleCloseEdit}
+        />
       ) : (
-        <p className="text-primary text-sm mt-2">{content}</p>
+        <>
+          <p className="text-primary text-sm mt-2">{content}</p>
+          <CommentFooter handleReply={handleReply} isReplying={isReplying} />
+        </>
+      )}
+      {isReplying && (
+        <div className="ml-6 pl-2 mt-3">
+          <div className="bg-surface-primary border border-border-subtle rounded-sm p-4">
+            <CreateCommentForm
+              postId={postId}
+              parentCommentId={commentId}
+              isReply={true}
+              onCancel={handleCloseReply}
+              onSuccess={handleCloseReply}
+            />
+          </div>
+        </div>
       )}
     </div>
   );

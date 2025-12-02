@@ -73,7 +73,11 @@
     "labels": {
       "title": "Comentarios",
       "createTitle": "Agregar un comentario",
+      "replyTitle": "Responder al comentario",
       "placeholder": "Escribe tu comentario aquí..."
+    },
+    "actions": {
+      "reply": "Responder"
     },
     "errors": {
       "load": "Error al cargar los comentarios:",

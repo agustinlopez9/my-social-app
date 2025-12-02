@@ -5,7 +5,7 @@ import { useComments } from "hooks/comments/useComments";
 import LoadingIndicator from "components/ui/Loading";
 import Error from "components/ui/Error";
 import CommentTreeBranch from "./TreeBranch";
-import CommentForm from "./CommentForm";
+import CreateCommentForm from "./CreateCommentForm";
 import Comment from "./Comment";
 
 interface CommentsSectionProps {
@@ -82,7 +82,7 @@ const CommentsSection = ({ postId }: CommentsSectionProps) => {
   return (
     <>
       <div className="bg-surface-primary border border-border-subtle rounded-sm m-2 mt-4 p-4">
-        <CommentForm postId={postId} />
+        <CreateCommentForm postId={postId} isReply={false} />
       </div>
       {!error ? (
         <div className="bg-surface-primary rounded-sm p-2 m-2 mt-6 border border-border-subtle overflow-x-scroll">

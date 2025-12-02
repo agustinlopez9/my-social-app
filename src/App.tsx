@@ -35,7 +35,7 @@ function App() {
           }}
         />
         <Navbar />
-        <div className="mx-auto my-20 max-w-3xl">
+        <div className="mx-auto my-20 max-w-4xl">
           <Outlet />
         </div>
       </QueryClientProvider>

@@ -13,7 +13,7 @@ export function useCreateComment() {
 
   return useMutation({
     mutationFn: ({ postId, content, parentId }: CreateCommentVariables) =>
-      commentsApi.createComment(postId, content, parentId),
+      commentsApi.createComment(postId, parentId, content),
     onSuccess: (_, variables) => {
       // Invalidate comments query for this specific post to refetch
       queryClient.invalidateQueries({ queryKey: commentsQueryKey(variables.postId) });

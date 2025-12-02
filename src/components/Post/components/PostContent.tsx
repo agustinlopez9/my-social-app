@@ -62,8 +62,8 @@ const PostContent = ({ postId, title, content }: PostContentProps) => {
         </form>
       ) : (
         <>
-          <h2 className="my-2 text-md font-bold">{title}</h2>
-          <p className="my-2 text-sm">{content}</p>
+          <h2 className="my-2 text-heading-sm font-bold">{title}</h2>
+          <p className="my-2 text-body">{content}</p>
         </>
       )}
     </>

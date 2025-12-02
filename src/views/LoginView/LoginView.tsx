@@ -16,7 +16,7 @@ const LoginView = () => {
   return (
     <div className="flex items-center justify-center min-h-screen">
       <div className="bg-surface-primary rounded-lg p-8 border border-border-subtle shadow-lg max-w-md w-full">
-        <h1 className="text-3xl font-bold text-primary mb-2 text-center">
+        <h1 className="text-display-lg font-bold text-primary mb-2 text-center">
           <span className="bg-linear-to-r from-brand-600 to-brand-400 bg-clip-text text-transparent">
             Sync
           </span>

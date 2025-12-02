@@ -36,7 +36,9 @@ const CreatePostForm = () => {
 
   return (
     <div className="bg-surface-primary rounded-sm p-4 border border-border-subtle m-2 mb-8 shadow-sm">
-      <p className="text-primary font-semibold mb-3">{t("post.labels.createTitle")}</p>
+      <p className="text-heading-lg text-primary font-semibold mb-3">
+        {t("post.labels.createTitle")}
+      </p>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
         <PostFormFields
           register={register}

@@ -1,0 +1,74 @@
+/**
+ * Typography System
+ *
+ * This file defines responsive font-size tokens and utility classes.
+ * Font sizes automatically scale at different breakpoints using CSS custom properties.
+ *
+ * Usage:
+ * - Just use the class once: <h1 className="text-display-lg">Title</h1>
+ * - Font size changes automatically at mobile and tablet/desktop (1024px breakpoint)
+ * - Update all sizes in one place by editing the CSS variables below
+ */
+
+/* Define responsive CSS custom properties */
+:root {
+  /* HEADING - Section & Page Titles */
+  --font-size-heading-lg: 1.25rem; /* 20px mobile */
+  --font-size-heading-md: 1.125rem; /* 18px mobile */
+  --font-size-heading-sm: 1rem; /* 16px mobile */
+
+  /* BODY - Content/Labels/Captions/UI */
+  --font-size-body-lg: 1rem; /* 16px mobile */
+  --font-size-body: 0.9375rem; /* 15px mobile */
+  --font-size-body-sm: 0.875rem; /* 14px mobile */
+}
+
+/* Tablet and desktop breakpoint (768px and up) */
+@media (min-width: 1024px) {
+  :root {
+    /* HEADING */
+    --font-size-heading-lg: 1.375rem; /* 22px tablet/desktop */
+    --font-size-heading-md: 1.25rem; /* 20px tablet/desktop */
+    --font-size-heading-sm: 1.125rem; /* 17px tablet/desktop */
+
+    /* BODY */
+    --font-size-body-lg: 1.0625rem; /* 17px tablet/desktop */
+    --font-size-body: 1rem; /* 16px tablet/desktop */
+    --font-size-body-sm: 0.9375rem; /* 15px tablet/desktop */
+  }
+}
+
+@layer utilities {
+  /* Display */
+  .text-display-lg {
+    font-size: var(--font-size-display-lg);
+  }
+  .text-display-md {
+    font-size: var(--font-size-display-md);
+  }
+  .text-display-sm {
+    font-size: var(--font-size-display-sm);
+  }
+
+  /* Heading */
+  .text-heading-lg {
+    font-size: var(--font-size-heading-lg);
+  }
+  .text-heading-md {
+    font-size: var(--font-size-heading-md);
+  }
+  .text-heading-sm {
+    font-size: var(--font-size-heading-sm);
+  }
+
+  /* Body */
+  .text-body-lg {
+    font-size: var(--font-size-body-lg);
+  }
+  .text-body {
+    font-size: var(--font-size-body);
+  }
+  .text-body-sm {
+    font-size: var(--font-size-body-sm);
+  }
+}

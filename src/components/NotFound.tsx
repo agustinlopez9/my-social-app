@@ -11,8 +11,8 @@ const NotFound = ({ message }: NotFoundProps) => {
   return (
     <div className="flex flex-col items-center justify-center min-h-[50vh] p-8">
       <FaExclamationCircle className="text-brand text-6xl mb-4" />
-      <h2 className="text-primary text-2xl font-bold mb-2">{t("notFound.labels.title")}</h2>
-      <p className="text-tertiary text-lg text-center max-w-md">
+      <h2 className="text-primary text-heading-lg font-bold mb-2">{t("notFound.labels.title")}</h2>
+      <p className="text-tertiary text-body-lg text-center max-w-md">
         {message || t("notFound.copy.message")}
       </p>
     </div>

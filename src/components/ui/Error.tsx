@@ -15,12 +15,12 @@ const Error = ({ title, message, error }: ErrorProps) => {
       <div className="flex flex-col gap-3">
         <div className="flex flex-row items-center gap-2">
           <FaExclamationCircle className="w-6 h-6 text-error" />
-          <h3 className="font-semibold text-lg">{title || t("common.labels.error")}</h3>
+          <h3 className="font-semibold text-heading-sm">{title || t("common.labels.error")}</h3>
         </div>
         <div>
           {message && <p className="text-secondary mb-2">{message}</p>}
           {error && (
-            <p className="text-sm text-tertiary font-mono bg-surface-secondary p-2 rounded border border-border-subtle">
+            <p className="text-body-sm text-tertiary font-mono bg-surface-secondary p-2 rounded border border-border-subtle">
               {error.message}
             </p>
           )}

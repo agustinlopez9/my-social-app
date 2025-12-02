@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router";
+import type { Post as PostType } from "api/types";
 import Post from "./Post/Post";
-import type { Post as PostType } from "mockData";
 
 interface UserPostProps {
   post: PostType;

@@ -61,8 +61,8 @@ const Comment = ({ postId, parentId, comment }: CommentProps) => {
   ];
 
   return (
-    <div className="bg-surface-secondary rounded-lg p-4 border border-border-subtle min-w-72 mb-2">
-      <div className="flex flex-row justify-between items-center">
+    <div className="bg-surface-secondary border-border-subtle mb-2 min-w-72 rounded-lg border p-4">
+      <div className="flex flex-row items-center justify-between">
         <Avatar
           src={avatar}
           alt={name}
@@ -74,7 +74,7 @@ const Comment = ({ postId, parentId, comment }: CommentProps) => {
         <Dropdown
           options={options}
           trigger={
-            <FaEllipsisV className="w-4 h-4 text-tertiary cursor-pointer hover:text-primary transition-colors" />
+            <FaEllipsisV className="text-tertiary hover:text-primary h-4 w-4 cursor-pointer transition-colors" />
           }
         />
       </div>
@@ -94,8 +94,8 @@ const Comment = ({ postId, parentId, comment }: CommentProps) => {
         </>
       )}
       {isReplying && (
-        <div className="ml-6 pl-2 mt-3">
-          <div className="bg-surface-primary border border-border-subtle rounded-sm p-4">
+        <div className="mt-3 ml-6 pl-2">
+          <div className="bg-surface-primary border-border-subtle rounded-sm border p-4">
             <CreateCommentForm
               postId={postId}
               parentCommentId={commentId}

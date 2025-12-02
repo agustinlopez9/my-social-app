@@ -17,7 +17,7 @@ const PostView = () => {
 
   if (isLoading) {
     return (
-      <div className="flex items-center justify-center min-h-48 my-10">
+      <div className="my-10 flex min-h-48 items-center justify-center">
         <LoadingIndicator
           loadingMessage={t("loading.copy.withData", {
             data: t("post.labels.title").toLowerCase(),
@@ -43,7 +43,7 @@ const PostView = () => {
     <div className="relative">
       <Button
         variant="secondary"
-        className="absolute z-20 top-6 -left-12 p-2 rounded-full"
+        className="absolute top-6 -left-12 z-20 rounded-full p-2"
         onClick={() => navigate(-1)}
       >
         <FaArrowLeft />

@@ -81,11 +81,11 @@ const CommentsSection = ({ postId }: CommentsSectionProps) => {
 
   return (
     <>
-      <div className="bg-surface-primary border border-border-subtle rounded-sm m-2 mt-4 p-4">
+      <div className="bg-surface-primary border-border-subtle m-2 mt-4 rounded-sm border p-4">
         <CreateCommentForm postId={postId} isReply={false} />
       </div>
       {!error ? (
-        <div className="bg-surface-primary rounded-sm p-2 m-2 mt-6 border border-border-subtle overflow-x-scroll">
+        <div className="bg-surface-primary border-border-subtle m-2 mt-6 overflow-x-scroll rounded-sm border p-2">
           {topLevelComments.map((comment) => (
             <div key={comment.id}>
               <Comment postId={postId || ""} parentId={null} comment={comment} />

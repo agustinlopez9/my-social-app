@@ -57,7 +57,7 @@ const EditCommentForm = ({
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-3 mt-2">
+    <form onSubmit={handleSubmit(onSubmit)} className="mt-2 space-y-3">
       <CommentFormFields
         register={register}
         errors={errors}

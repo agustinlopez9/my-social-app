@@ -11,15 +11,15 @@ function CommentFooter({ handleReply, isReplying }: CommentFooterProps) {
 
   return (
     <>
-      <div className="border-t border-border-default my-2" />
+      <div className="border-border-default my-2 border-t" />
       <div className="flex flex-row items-center">
         <button
           onClick={handleReply}
           disabled={isReplying}
-          className="hover:bg-surface-elevated rounded-full px-2 py-1 cursor-pointer transition-colors flex items-center gap-1 text-sm text-secondary disabled:opacity-50 disabled:cursor-not-allowed"
+          className="hover:bg-surface-elevated text-secondary flex cursor-pointer items-center gap-1 rounded-full px-2 py-1 text-sm transition-colors disabled:cursor-not-allowed disabled:opacity-50"
         >
           <FaReply className="w-3" />
-          <span className="block text-body-sm">{t("comments.actions.reply")}</span>
+          <span className="text-body-sm block">{t("comments.actions.reply")}</span>
         </button>
       </div>
     </>

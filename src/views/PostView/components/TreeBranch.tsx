@@ -5,14 +5,14 @@ interface CommentTreeBranchProps {
 const CommentTreeBranch = ({ isLast }: CommentTreeBranchProps) => {
   return (
     <div
-      className={`absolute -left-4 w-4 border-l border-border-default ${
+      className={`border-border-default absolute -left-4 w-4 border-l ${
         isLast ? "h-10 border-transparent" : "h-[calc(100%+0.5rem)]"
       }`}
     >
       {isLast ? (
-        <div className="absolute bottom-2 -left-0.25 w-4 h-10 border-l border-b border-border-default rounded-bl-lg" />
+        <div className="border-border-default absolute bottom-2 -left-0.25 h-10 w-4 rounded-bl-lg border-b border-l" />
       ) : (
-        <div className="absolute top-10 left-0 w-4 border-t border-border-default" />
+        <div className="border-border-default absolute top-10 left-0 w-4 border-t" />
       )}
     </div>
   );

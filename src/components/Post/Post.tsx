@@ -15,7 +15,7 @@ const PostRoot = ({ enableHover = true, editable = true, children }: PostProps) 
   return (
     <PostContext.Provider value={{ isEditing, setIsEditing, editable }}>
       <div
-        className={`relative text-primary border bg-surface-primary border-border-subtle ${enableHover ? "hover:border-border-interactive" : ""} p-4 m-2 rounded-sm transition ease-in-out duration-200 shadow-sm`}
+        className={`text-primary bg-surface-primary border-border-subtle relative border ${enableHover ? "hover:border-border-interactive" : ""} m-2 rounded-sm p-4 shadow-sm transition duration-200 ease-in-out`}
       >
         {children}
       </div>

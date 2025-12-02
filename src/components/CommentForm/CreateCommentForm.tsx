@@ -52,7 +52,7 @@ const CreateCommentForm = ({
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
-      <p className="text-heading-sm text-primary font-semibold mb-3">
+      <p className="text-heading-sm text-primary mb-3 font-semibold">
         {isReply ? t("comments.labels.replyTitle") : t("comments.labels.createTitle")}
       </p>
       <CommentFormFields

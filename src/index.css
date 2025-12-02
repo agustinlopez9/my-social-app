@@ -18,28 +18,28 @@ body {
 @layer components {
   /* Avatar Styles */
   .avatar {
-    @apply w-10 h-10 rounded-full object-cover;
+    @apply h-10 w-10 rounded-full object-cover;
   }
 
   .avatar-smaller {
-    @apply w-6 h-6;
+    @apply h-6 w-6;
   }
 
   .avatar-small {
-    @apply w-8 h-8;
+    @apply h-8 w-8;
   }
 
   .avatar-medium {
-    @apply w-10 h-10;
+    @apply h-10 w-10;
   }
 
   .avatar-large {
-    @apply w-12 h-12;
+    @apply h-12 w-12;
   }
 
   /* Button Styles */
   .btn {
-    @apply cursor-pointer rounded-md transition-colors flex items-center justify-center gap-2 font-medium;
+    @apply flex cursor-pointer items-center justify-center gap-2 rounded-md font-medium transition-colors;
   }
 
   .btn-primary {
@@ -88,7 +88,7 @@ body {
 
 /* Radio Styles */
 .radio {
-  @apply cursor-pointer rounded-md transition-colors flex items-center justify-center gap-2 font-medium;
+  @apply flex cursor-pointer items-center justify-center gap-2 rounded-md font-medium transition-colors;
 }
 
 .radio-primary {

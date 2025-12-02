@@ -70,7 +70,7 @@ const LoadingIndicator = ({
         />
       </svg>
       {showMessage ? (
-        <p className="mt-2 text-primary">{loadingMessage || t("loading.copy.default")}</p>
+        <p className="text-primary mt-2">{loadingMessage || t("loading.copy.default")}</p>
       ) : null}
     </div>
   );

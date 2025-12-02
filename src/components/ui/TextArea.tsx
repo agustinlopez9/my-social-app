@@ -9,7 +9,7 @@ const TextArea = ({ name, placeholder, ...props }: TextAreaProps) => {
   const { t } = useTranslation();
   return (
     <textarea
-      className="w-full bg-surface-input text-primary rounded-md p-3 min-h-24 resize-none border border-border-subtle focus:border-border-focus focus:outline-none placeholder:text-placeholder"
+      className="bg-surface-input text-primary border-border-subtle focus:border-border-focus placeholder:text-placeholder min-h-24 w-full resize-none rounded-md border p-3 focus:outline-none"
       name={name}
       placeholder={placeholder || t("common.copy.textPlaceholder")}
       {...props}

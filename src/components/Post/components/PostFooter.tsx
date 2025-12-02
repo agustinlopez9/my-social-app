@@ -13,14 +13,14 @@ const PostFooter = ({ commentsCount, handleCommentClick }: PostFooterProps) => {
 
   return (
     <>
-      <div className="border border-border-default mt-4 mb-2" />
+      <div className="border-border-default mt-4 mb-2 border" />
       <div className="flex flex-row items-center gap-3">
-        <button className="hover:bg-surface-elevated rounded-full px-2 cursor-pointer transition-colors">
-          <FaRegHeart onClick={handleLike} className="w-5 my-2" />
+        <button className="hover:bg-surface-elevated cursor-pointer rounded-full px-2 transition-colors">
+          <FaRegHeart onClick={handleLike} className="my-2 w-5" />
         </button>
         {handleCommentClick && (
-          <button className="hover:bg-surface-elevated rounded-full px-2 cursor-pointer transition-colors">
-            <FaRegComment onClick={handleCommentClick} className="w-5 my-2" />
+          <button className="hover:bg-surface-elevated cursor-pointer rounded-full px-2 transition-colors">
+            <FaRegComment onClick={handleCommentClick} className="my-2 w-5" />
           </button>
         )}
         {commentsCount}

@@ -13,7 +13,7 @@ interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
 const Select = ({ options, placeholder, className = "", ...props }: SelectProps) => {
   return (
     <select
-      className={`bg-interactive-secondary text-primary border border-border-subtle rounded-md p-1 focus:border-border-interactive focus:outline-none focus:ring-2 focus:ring-brand-500/20 cursor-pointer hover:border-border-default ${className}`}
+      className={`bg-interactive-secondary text-primary border-border-subtle focus:border-border-interactive focus:ring-brand-500/20 hover:border-border-default cursor-pointer rounded-md border p-1 focus:ring-2 focus:outline-none ${className}`}
       {...props}
     >
       {placeholder && (

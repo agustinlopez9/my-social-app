@@ -6,11 +6,11 @@ const Navbar = () => {
   const { user } = useAuth();
 
   return (
-    <div className="fixed block bg-surface-navbar w-full z-50 top-0 shadow-md">
-      <nav className="flex flex-row justify-between items-center mx-auto max-w-5xl bg-surface-navbar px-4 py-2 text-primary">
+    <div className="bg-surface-navbar fixed top-0 z-50 block w-full shadow-md">
+      <nav className="bg-surface-navbar text-primary mx-auto flex max-w-5xl flex-row items-center justify-between px-4 py-2">
         <Link to="/">
-          <h1 className="text-2xl lg:text-3xl font-bold">
-            <span className="bg-linear-to-r from-brand-600 to-brand-400 bg-clip-text text-transparent">
+          <h1 className="text-2xl font-bold lg:text-3xl">
+            <span className="from-brand-600 to-brand-400 bg-linear-to-r bg-clip-text text-transparent">
               Sync
             </span>
             Up!

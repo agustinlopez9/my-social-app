@@ -52,7 +52,7 @@ const PostContent = ({ postId, title, content }: PostContentProps) => {
   return (
     <>
       {isEditing ? (
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-3 mt-2">
+        <form onSubmit={handleSubmit(onSubmit)} className="mt-2 space-y-3">
           <PostFormFields
             register={register}
             errors={errors}
@@ -62,8 +62,8 @@ const PostContent = ({ postId, title, content }: PostContentProps) => {
         </form>
       ) : (
         <>
-          <h2 className="my-2 text-heading-sm font-bold">{title}</h2>
-          <p className="my-2 text-body">{content}</p>
+          <h2 className="text-heading-sm my-2 font-bold">{title}</h2>
+          <p className="text-body my-2">{content}</p>
         </>
       )}
     </>

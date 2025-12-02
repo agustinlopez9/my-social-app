@@ -57,7 +57,7 @@ const PostHeader = ({ postId, avatar, name, createdAt }: PostHeaderProps) => {
       ];
 
   return (
-    <div className="flex flex-row justify-between items-center w-full">
+    <div className="flex w-full flex-row items-center justify-between">
       <Avatar
         className="my-2"
         src={avatar}
@@ -69,7 +69,7 @@ const PostHeader = ({ postId, avatar, name, createdAt }: PostHeaderProps) => {
       <Dropdown
         options={options}
         trigger={
-          <FaEllipsisV className="w-3 text-tertiary cursor-pointer hover:text-primary transition-colors" />
+          <FaEllipsisV className="text-tertiary hover:text-primary w-3 cursor-pointer transition-colors" />
         }
       />
     </div>

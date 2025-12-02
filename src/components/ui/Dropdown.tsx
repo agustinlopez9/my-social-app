@@ -36,23 +36,23 @@ const Dropdown = ({ trigger, options, className = "" }: DropdownProps) => {
     <div className={`relative ${className}`} ref={dropdownRef}>
       <div
         onClick={handleToggleMenu}
-        className="cursor-pointer hover:bg-interactive-secondary transition-colors rounded-full p-1 inline-block"
+        className="hover:bg-interactive-secondary inline-block cursor-pointer rounded-full p-1 transition-colors"
       >
         {trigger}
       </div>
 
       {isOpen && options.length && (
-        <div className="absolute right-0 bg-surface-secondary border border-border-subtle rounded-md shadow-md z-50 min-w-content overflow-hidden">
+        <div className="bg-surface-secondary border-border-subtle min-w-content absolute right-0 z-50 overflow-hidden rounded-md border shadow-md">
           {options.map((option, index) => (
             <button
               key={index}
               onClick={(event) => handleOptionClick(event)(option)}
-              className={`flex flex-row gap-2 w-full px-4 py-2 text-left text-sm text-primary hover:bg-interactive-secondary transition-colors ${option.component ? "" : "cursor-pointer"} ${
+              className={`text-primary hover:bg-interactive-secondary flex w-full flex-row gap-2 px-4 py-2 text-left text-sm transition-colors ${option.component ? "" : "cursor-pointer"} ${
                 option.className || ""
               }`}
             >
               <div className="flex flex-row items-center gap-2">
-                {option.icon && <span className="w-4 h-4">{option.icon}</span>}
+                {option.icon && <span className="h-4 w-4">{option.icon}</span>}
                 <span>{option.label}</span>
               </div>
               {option.component && (

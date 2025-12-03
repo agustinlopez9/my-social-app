@@ -13,7 +13,12 @@ const LanguageSelector = () => {
     i18n.changeLanguage(e.target.value);
   };
 
-  return <Select options={languageOptions} value={i18n.language} onChange={handleLanguageChange} />;
+  // Extract base language code (e.g., "es" from "es-ES")
+  const currentLanguage = i18n.language.split("-")[0];
+
+  return (
+    <Select options={languageOptions} value={currentLanguage} onChange={handleLanguageChange} />
+  );
 };
 
 export default LanguageSelector;

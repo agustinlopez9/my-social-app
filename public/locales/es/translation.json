@@ -18,6 +18,12 @@
       "hide": "Ocultar",
       "login": "Iniciar sesión",
       "signup": "Registrarse"
+    },
+    "dialog": {
+      "deleteConfirmation": {
+        "title": "Confirmar Eliminación",
+        "message": "¿Estás seguro de que quieres eliminar esto? Esta acción no se puede deshacer."
+      }
     }
   },
   "loginView": {

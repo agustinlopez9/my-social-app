@@ -18,6 +18,12 @@
       "hide": "Hide",
       "login": "Log in",
       "signup": "Sign up"
+    },
+    "dialog": {
+      "deleteConfirmation": {
+        "title": "Delete Confirmation",
+        "message": "Are you sure you want to delete this? This action cannot be undone."
+      }
     }
   },
   "loginView": {

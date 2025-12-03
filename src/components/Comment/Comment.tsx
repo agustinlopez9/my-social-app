@@ -4,6 +4,7 @@ import { FaPen, FaTrash, FaEllipsisV } from "react-icons/fa";
 import type { Comment as CommentType } from "api/types";
 import Avatar from "components/ui/Avatar";
 import Dropdown from "components/ui/Dropdown";
+import DeleteConfirmationDialog from "components/ui/DeleteConfirmationDialog";
 import CreateCommentForm from "../CommentForm/CreateCommentForm";
 import EditCommentForm from "../CommentForm/EditCommentForm";
 import CommentFooter from "./CommentFooter";
@@ -19,6 +20,7 @@ interface CommentProps {
 const Comment = ({ postId, parentId, comment }: CommentProps) => {
   const [isEditing, setIsEditing] = useState(false);
   const [isReplying, setIsReplying] = useState(false);
+  const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
   const { t } = useTranslation();
   const deleteComment = useDeleteComment();
 
@@ -30,21 +32,26 @@ const Comment = ({ postId, parentId, comment }: CommentProps) => {
     setIsEditing(true);
   };
 
+  const handleCloseEdit = () => {
+    setIsEditing(false);
+  };
+
   const handleReply = () => {
     if (isEditing) setIsEditing(false);
     setIsReplying(true);
-  };
-
-  const handleCloseEdit = () => {
-    setIsEditing(false);
   };
 
   const handleCloseReply = () => {
     setIsReplying(false);
   };
 
-  const handleDelete = async () => {
+  const handleDeleteClick = () => {
+    setIsDeleteDialogOpen(true);
+  };
+
+  const handleDelete = () => {
     deleteComment.mutate({ postId, commentId });
+    setIsDeleteDialogOpen(false);
   };
 
   const options = [
@@ -55,58 +62,67 @@ const Comment = ({ postId, parentId, comment }: CommentProps) => {
     },
     {
       label: t("common.actions.delete"),
-      onClick: () => handleDelete(),
+      onClick: handleDeleteClick,
       icon: <FaTrash />,
     },
   ];
 
   return (
-    <div className="bg-surface-secondary border-border-subtle mb-2 min-w-72 rounded-lg border p-4">
-      <div className="flex flex-row items-center justify-between">
-        <Avatar
-          src={avatar}
-          alt={name}
-          title={name}
-          subtitle={getRelativeTimeFromDate(commentDate)}
-          size="smaller"
-          direction="row"
-        />
-        <Dropdown
-          options={options}
-          trigger={
-            <FaEllipsisV className="text-tertiary hover:text-primary h-4 w-4 cursor-pointer transition-colors" />
-          }
-        />
-      </div>
-      {isEditing ? (
-        <EditCommentForm
-          postId={postId}
-          commentId={commentId}
-          initialContent={content}
-          parentId={parentId}
-          onCancel={handleCloseEdit}
-          onSuccess={handleCloseEdit}
-        />
-      ) : (
-        <>
-          <p className="text-primary text-body mt-2">{content}</p>
-          <CommentFooter handleReply={handleReply} isReplying={isReplying} />
-        </>
-      )}
-      {isReplying && (
-        <div className="mt-3 ml-6 pl-2">
-          <div className="bg-surface-primary border-border-subtle rounded-sm border p-4">
-            <CreateCommentForm
-              postId={postId}
-              parentCommentId={commentId}
-              isReply={true}
-              onCancel={handleCloseReply}
-              onSuccess={handleCloseReply}
-            />
-          </div>
+    <>
+      <div className="bg-surface-secondary border-border-subtle mb-2 min-w-72 rounded-lg border p-4">
+        <div className="flex flex-row items-center justify-between">
+          <Avatar
+            src={avatar}
+            alt={name}
+            title={name}
+            subtitle={getRelativeTimeFromDate(commentDate)}
+            size="smaller"
+            direction="row"
+          />
+          <Dropdown
+            options={options}
+            trigger={
+              <FaEllipsisV className="text-tertiary hover:text-primary h-4 w-4 cursor-pointer transition-colors" />
+            }
+          />
         </div>
-      )}
-    </div>
+        {isEditing ? (
+          <EditCommentForm
+            postId={postId}
+            commentId={commentId}
+            initialContent={content}
+            parentId={parentId}
+            onCancel={handleCloseEdit}
+            onSuccess={handleCloseEdit}
+          />
+        ) : (
+          <>
+            <p className="text-primary text-body mt-2">{content}</p>
+            <CommentFooter handleReply={handleReply} isReplying={isReplying} />
+          </>
+        )}
+        {isReplying && (
+          <div className="mt-3 ml-6 pl-2">
+            <div className="bg-surface-primary border-border-subtle rounded-sm border p-4">
+              <CreateCommentForm
+                postId={postId}
+                parentCommentId={commentId}
+                isReply={true}
+                onCancel={handleCloseReply}
+                onSuccess={handleCloseReply}
+              />
+            </div>
+          </div>
+        )}
+      </div>
+
+      <DeleteConfirmationDialog
+        isOpen={isDeleteDialogOpen}
+        onClose={() => setIsDeleteDialogOpen(false)}
+        onConfirm={handleDelete}
+        loading={deleteComment.isPending}
+      />
+    </>
   );
 };
 

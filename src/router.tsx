@@ -39,6 +39,6 @@ export const router = createBrowserRouter(
     },
   ],
   {
-    basename: "/my-social-app",
+    basename: "/",
   },
 );

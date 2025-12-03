@@ -1,6 +1,6 @@
 # API Architecture
 
-This folder contains the new API layer for the Fudo Social App, organized for use with TanStack Query.
+This folder contains the API layer for the Social App, organized for use with TanStack Query.
 
 ## Structure
 
@@ -19,10 +19,12 @@ src/
     │   ├── usePosts.ts           # Fetch all posts
     │   ├── usePost.ts            # Fetch single post
     │   ├── useCreatePost.ts      # Create post
+    │   ├── useEditPost.ts        # Edit post
     │   └── useDeletePost.ts      # Delete post
     └── comments/
         ├── useComments.ts        # Fetch comments for a post
         ├── useCreateComment.ts   # Create comment
+        ├── useEditComment.ts   # Edit comment
         └── useDeleteComment.ts   # Delete comment
 ```
 
@@ -82,27 +84,6 @@ function NewPostForm() {
 }
 ```
 
-### Fetching Comments
-
-```typescript
-import { useComments } from 'hooks/comments/useComments';
-
-function CommentsList({ postId }: { postId: string }) {
-  const { data: comments, isLoading, error } = useComments(postId);
-
-  if (isLoading) return <div>Loading comments...</div>;
-  if (error) return <div>Error: {error.message}</div>;
-
-  return (
-    <div>
-      {comments?.map((comment) => (
-        <div key={comment.id}>{comment.content}</div>
-      ))}
-    </div>
-  );
-}
-```
-
 ## Environment Variables
 
 The API uses environment variables defined in `.env.local`:
@@ -132,33 +113,3 @@ try {
   }
 }
 ```
-
-## TanStack Query Features
-
-All hooks leverage TanStack Query's powerful features:
-
-- **Automatic caching**: Data is cached for 5 minutes by default
-- **Automatic refetching**: Data refetches on window focus, network reconnect
-- **Optimistic updates**: UI updates before API confirms success
-- **Cache invalidation**: Mutations automatically refetch related queries
-- **Loading states**: `isLoading`, `isPending` states included
-- **Error handling**: `error` object with detailed error information
-
-## Migration from mockData
-
-When ready to migrate from mockData to real API:
-
-1. Replace mockData imports with the appropriate hook:
-
-   ```typescript
-   // Before
-   import { posts } from "mockData";
-
-   // After
-   import { usePosts } from "hooks/posts/usePosts";
-   const { data: posts } = usePosts();
-   ```
-
-2. Add loading and error states
-3. Test thoroughly
-4. Remove mockData imports when complete

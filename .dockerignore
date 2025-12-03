@@ -1,0 +1,77 @@
+# Dependencies
+node_modules
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Build artifacts
+dist
+dist-ssr
+build
+coverage
+*.tsbuildinfo
+
+# Environment variables (SECURITY CRITICAL)
+.env
+.env.local
+.env.*.local
+.env.development
+.env.test
+*.local
+
+# Version control (LARGE - saves significant space)
+.git
+.github
+.gitlab-ci.yml
+.gitignore
+
+# IDE and editors
+.vscode
+.idea
+*.swp
+*.swo
+*.DS_Store
+*.suo
+
+# Testing (not needed in production)
+*.test.ts
+*.test.tsx
+*.test.js
+*.test.jsx
+*.spec.*
+__tests__
+__mocks__
+jest.config.*
+coverage
+
+# Documentation
+*.md
+docs
+README.md
+CHANGELOG.md
+
+# CI/CD
+.github
+.gitlab-ci.yml
+.circleci
+
+# Linting and formatting
+.eslintrc*
+.eslintignore
+.prettierrc*
+.prettierignore
+eslint.config.js
+
+# Docker
+Dockerfile.backup
+docker-compose.yml.backup
+.dockerignore.backup
+
+# Logs
+logs
+*.log
+
+# Temporary files
+tmp
+temp
+*.tmp

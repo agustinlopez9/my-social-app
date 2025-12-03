@@ -10,7 +10,7 @@ const CommentTreeBranch = ({ isLast }: CommentTreeBranchProps) => {
       }`}
     >
       {isLast ? (
-        <div className="border-border-default absolute bottom-2 -left-0.25 h-10 w-4 rounded-bl-lg border-b border-l" />
+        <div className="border-border-default absolute bottom-2 -left-px h-10 w-4 rounded-bl-lg border-b border-l" />
       ) : (
         <div className="border-border-default absolute top-10 left-0 w-4 border-t" />
       )}

@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useTranslation } from "react-i18next";
 import toast from "react-hot-toast";
+import { useAuth } from "context/AuthContext";
 import { useCreateComment } from "hooks/comments/useCreateComment";
 import CommentFormFields from "components/CommentForm/CommentFormFields";
 import { validationSchema, type CreateEditCommentFormData } from "components/CommentForm/utils";
@@ -22,6 +23,7 @@ const CreateCommentForm = ({
   isReply = false,
 }: CreateCommentFormProps) => {
   const { t } = useTranslation();
+  const { user } = useAuth();
   const createComment = useCreateComment();
 
   const {
@@ -33,15 +35,20 @@ const CreateCommentForm = ({
     resolver: yupResolver(validationSchema),
     reValidateMode: "onSubmit",
     defaultValues: {
-      content: "",
       postId: postId || undefined,
+      createdAt: new Date().toISOString(),
+      name: user?.name || "",
+      avatar: user?.avatar || "",
+      content: "",
       parentId: parentCommentId,
     },
   });
 
   const onSubmit = async (data: CreateEditCommentFormData) => {
+    const { postId, ...restData } = data;
+
     try {
-      await createComment.mutateAsync(data);
+      await createComment.mutateAsync({ postId, data: restData });
       reset();
       toast.success(t("comments.copy.created"));
       onSuccess?.();

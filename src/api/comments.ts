@@ -4,8 +4,8 @@ import type { Comment, Post } from "api/types";
 export const commentsApi = {
   getComments: (postId: Post["id"]) => httpClient.get<Comment[]>(`/comment?postId=${postId}`),
 
-  createComment: (postId: Post["id"], parentId: Comment["parentId"], content: Comment["content"]) =>
-    httpClient.post<Comment>(`/post/${postId}/comment`, { content, parentId }),
+  createComment: (postId: Post["id"], data: Partial<Comment>) =>
+    httpClient.post<Comment>(`/post/${postId}/comment`, data),
 
   editComment: (postId: Post["id"], commentId: Comment["id"], content: Comment["content"]) =>
     httpClient.put<Comment>(`/post/${postId}/comment/${commentId}`, { content }),

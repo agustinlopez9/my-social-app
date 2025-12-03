@@ -2,13 +2,15 @@ import { useTranslation } from "react-i18next";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import { useAuth } from "context/AuthContext";
 import { useCreatePost } from "hooks/posts/useCreatePost";
-import PostFormFields from ".";
+import PostFormFields from "./PostFormFields";
 import { validationSchema, type CreatePostFormData } from "./utils";
 
 const CreatePostForm = () => {
   const { t } = useTranslation();
   const createPost = useCreatePost();
+  const { user } = useAuth();
 
   const {
     register,
@@ -19,6 +21,9 @@ const CreatePostForm = () => {
     resolver: yupResolver(validationSchema),
     reValidateMode: "onSubmit",
     defaultValues: {
+      avatar: user?.avatar || "",
+      name: user?.name || "",
+      createdAt: new Date().toISOString(),
       title: "",
       content: "",
     },

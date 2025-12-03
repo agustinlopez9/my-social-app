@@ -47,10 +47,15 @@ Additionally, you can run development mode with:
 Since this is prepared for Production, make sure you have set up the .env.production file with the correct endpoint of the API, otherwise it won't work. Then you can install this project using:
 
 ```
-docker-compose up
+  docker-compose up
 ```
 
 Make sure you have Docker engine running (or Docker-desktop if you're using that)
+
+## Mock User Data
+
+Since the API currently doesn't support Authentication you can test the endpoints with the user in [src/mockData.ts](src/mockData.ts).
+Feel free to make any changes to that user object.
 
 ## i18n internationalization
 

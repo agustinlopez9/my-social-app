@@ -3,6 +3,9 @@ import * as yup from "yup";
 export type { PostFormData as CreatePostFormData } from "components/PostForm";
 
 export const validationSchema = yup.object({
+  avatar: yup.string().defined(),
+  name: yup.string().defined().max(50, "post.validation.nameMaxLength").trim(),
+  createdAt: yup.string().defined(),
   title: yup
     .string()
     .required("post.validation.titleRequired")

@@ -1,36 +1,38 @@
 import { useTranslation } from "react-i18next";
-import type { UseFormRegister, FieldErrors } from "react-hook-form";
+import type { UseFormRegister, FieldErrors, FieldPath } from "react-hook-form";
 import FormInput from "components/formComponents/FormInput";
 import FormTextArea from "components/formComponents/FormTextArea";
 import Button from "components/ui/Button";
-import type { PostFormData } from "./types";
+import type { CreatePostFormData, EditPostFormData } from "./types";
 
-interface PostFormFieldsProps {
-  register: UseFormRegister<PostFormData>;
-  errors: FieldErrors<PostFormData>;
+type PostFormData = CreatePostFormData | EditPostFormData;
+
+interface PostFormFieldsProps<T extends PostFormData> {
+  register: UseFormRegister<T>;
+  errors: FieldErrors<T>;
   handleCancel?: () => void;
   isSubmittingOrPending?: boolean;
 }
 
-const PostFormFields = ({
+const PostFormFields = <T extends PostFormData>({
   register,
   errors,
   handleCancel,
   isSubmittingOrPending,
-}: PostFormFieldsProps) => {
+}: PostFormFieldsProps<T>) => {
   const { t } = useTranslation();
 
   return (
     <>
       <FormInput
-        {...register("title")}
+        {...register("title" as FieldPath<T>)}
         placeholder={t("post.labels.titlePlaceholder")}
-        error={errors.title?.message ? t(errors.title.message) : undefined}
+        error={errors.title?.message ? t(errors.title.message as string) : undefined}
       />
       <FormTextArea
-        {...register("content")}
+        {...register("content" as FieldPath<T>)}
         placeholder={t("post.labels.placeholder")}
-        error={errors.content?.message ? t(errors.content.message) : undefined}
+        error={errors.content?.message ? t(errors.content.message as string) : undefined}
       />
       <div className="flex justify-end gap-2">
         {handleCancel && (

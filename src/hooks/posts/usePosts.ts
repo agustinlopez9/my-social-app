@@ -6,7 +6,7 @@ export const POSTS_QUERY_KEY = ["posts"] as const;
 export function usePosts() {
   return useQuery({
     queryKey: POSTS_QUERY_KEY,
-    queryFn: postsApi.getPosts,
+    queryFn: () => postsApi.getPosts(),
     staleTime: 5 * 60 * 1000, // 5 minutes
   });
 }

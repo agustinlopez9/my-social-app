@@ -1,11 +1,10 @@
 import * as yup from "yup";
+import type { CreatePostFormData } from "./types";
 
-export type { PostFormData as CreatePostFormData } from "components/PostForm";
-
-export const validationSchema = yup.object({
-  avatar: yup.string().defined(),
-  name: yup.string().defined().max(50, "post.validation.nameMaxLength").trim(),
-  createdAt: yup.string().defined(),
+export const validationSchema: yup.ObjectSchema<CreatePostFormData> = yup.object({
+  avatar: yup.string().optional(),
+  name: yup.string().max(50, "post.validation.nameMaxLength").trim().optional(),
+  createdAt: yup.string().required(),
   title: yup
     .string()
     .required("post.validation.titleRequired")
@@ -19,5 +18,3 @@ export const validationSchema = yup.object({
     .max(500, "post.validation.contentMaxLength")
     .trim(),
 });
-
-export type CreatePostValidated = yup.InferType<typeof validationSchema>;

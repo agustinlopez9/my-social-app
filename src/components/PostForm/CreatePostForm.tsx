@@ -5,7 +5,8 @@ import toast from "react-hot-toast";
 import { useAuth } from "context/AuthContext";
 import { useCreatePost } from "hooks/posts/useCreatePost";
 import PostFormFields from "./PostFormFields";
-import { validationSchema, type CreatePostFormData } from "./utils";
+import { validationSchema } from "./utils";
+import type { CreatePostFormData } from "./types";
 
 const CreatePostForm = () => {
   const { t } = useTranslation();
@@ -45,7 +46,7 @@ const CreatePostForm = () => {
         {t("post.labels.createTitle")}
       </p>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
-        <PostFormFields
+        <PostFormFields<CreatePostFormData>
           register={register}
           errors={errors}
           isSubmittingOrPending={isSubmitting || createPost.isPending}

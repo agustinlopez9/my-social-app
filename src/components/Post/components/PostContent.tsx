@@ -5,7 +5,8 @@ import toast from "react-hot-toast";
 import { usePostContext } from "../context";
 import { useEditPost } from "hooks/posts/useEditPost";
 import PostFormFields from "components/PostForm";
-import { validationSchema, type EditPostFormData } from "../utils";
+import type { EditPostFormData } from "components/PostForm";
+import { validationSchema } from "../utils";
 
 interface PostContentProps {
   title: string;
@@ -26,6 +27,7 @@ const PostContent = ({ title, content }: PostContentProps) => {
     resolver: yupResolver(validationSchema),
     reValidateMode: "onSubmit",
     defaultValues: {
+      createdAt: new Date().toISOString(),
       title: title,
       content: content,
     },
@@ -52,7 +54,7 @@ const PostContent = ({ title, content }: PostContentProps) => {
     <>
       {isEditing ? (
         <form onSubmit={handleSubmit(onSubmit)} className="mt-2 space-y-3">
-          <PostFormFields
+          <PostFormFields<EditPostFormData>
             register={register}
             errors={errors}
             handleCancel={handleCancel}

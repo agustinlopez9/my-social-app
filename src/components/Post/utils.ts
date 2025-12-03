@@ -1,8 +1,8 @@
 import * as yup from "yup";
+import type { EditPostFormData } from "components/PostForm";
 
-export type { PostFormData as EditPostFormData } from "components/PostForm";
-
-export const validationSchema = yup.object({
+export const validationSchema: yup.ObjectSchema<EditPostFormData> = yup.object({
+  createdAt: yup.string().defined(),
   title: yup
     .string()
     .required("post.validation.titleRequired")

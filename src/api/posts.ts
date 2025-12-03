@@ -2,7 +2,7 @@ import { httpClient } from "lib/http-client";
 import type { Post } from "api/types";
 
 export const postsApi = {
-  getPosts: () => httpClient.get<Post[]>("/post"),
+  getPosts: (page = 1, limit = 10) => httpClient.get<Post[]>(`/post?page=${page}&limit=${limit}`),
 
   getPost: (postId: Post["id"]) => httpClient.get<Post>(`/post/${postId}`),
 

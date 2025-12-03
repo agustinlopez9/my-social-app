@@ -5,17 +5,35 @@ import PostFooter from "./components/PostFooter";
 import PostContent from "./components/PostContent";
 
 interface PostProps extends PropsWithChildren {
+  postId?: string;
   enableHover?: boolean;
   editable?: boolean;
+  onClick?: () => void;
 }
 
-const PostRoot = ({ enableHover = true, editable = true, children }: PostProps) => {
+const PostRoot = ({
+  postId,
+  enableHover = true,
+  editable = true,
+  onClick,
+  children,
+}: PostProps) => {
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
 
+  const handleClick = () => {
+    if (!dropdownOpen && onClick) {
+      onClick();
+    }
+  };
+
   return (
-    <PostContext.Provider value={{ isEditing, setIsEditing, editable }}>
+    <PostContext.Provider
+      value={{ postId, dropdownOpen, setDropdownOpen, isEditing, setIsEditing, editable }}
+    >
       <div
-        className={`text-primary bg-surface-primary border-border-subtle relative border ${enableHover ? "hover:border-border-interactive" : ""} m-2 rounded-sm p-4 shadow-sm transition duration-200 ease-in-out`}
+        onClick={handleClick}
+        className={`text-primary bg-surface-primary border-border-subtle relative border ${enableHover && !dropdownOpen ? "hover:border-border-interactive" : ""} ${onClick && !dropdownOpen ? "cursor-pointer" : ""} m-2 rounded-sm p-4 shadow-sm transition duration-200 ease-in-out`}
       >
         {children}
       </div>

@@ -18,7 +18,6 @@ const RadioGroupItem = ({
   value,
   name,
   checked = false,
-  defaultChecked = false,
   onChange,
   variant = "secondary",
   size = "medium",
@@ -38,7 +37,6 @@ const RadioGroupItem = ({
         type="radio"
         name={name || label}
         value={value}
-        defaultChecked={defaultChecked}
         checked={checked}
         onChange={handleChange}
         className="sr-only"

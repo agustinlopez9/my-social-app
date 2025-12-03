@@ -10,18 +10,17 @@ import DeleteConfirmationDialog from "components/ui/DeleteConfirmationDialog";
 import { getRelativeTimeFromDate } from "utils/utils";
 
 interface PostHeaderProps {
-  postId: string;
   avatar: string;
   name: string;
   createdAt: string;
 }
 
-const PostHeader = ({ postId, avatar, name, createdAt }: PostHeaderProps) => {
+const PostHeader = ({ avatar, name, createdAt }: PostHeaderProps) => {
+  const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
   const { t } = useTranslation();
-  const { setIsEditing, editable } = usePostContext();
+  const { postId, setDropdownOpen, setIsEditing, editable } = usePostContext();
   const navigate = useNavigate();
   const deletePost = useDeletePost();
-  const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
 
   const handleMenuClick = (action: string) => {
     console.log(`${action} clicked`);
@@ -32,6 +31,7 @@ const PostHeader = ({ postId, avatar, name, createdAt }: PostHeaderProps) => {
   };
 
   const handleDelete = async () => {
+    if (!postId) return null;
     await deletePost.mutate(postId);
     setIsDeleteDialogOpen(false);
     navigate("/");
@@ -77,6 +77,8 @@ const PostHeader = ({ postId, avatar, name, createdAt }: PostHeaderProps) => {
         />
         <Dropdown
           options={options}
+          onOpen={() => setDropdownOpen(true)}
+          onClose={() => setDropdownOpen(false)}
           trigger={
             <FaEllipsisV className="text-tertiary hover:text-primary w-3 cursor-pointer transition-colors" />
           }

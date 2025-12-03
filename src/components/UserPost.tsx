@@ -16,13 +16,11 @@ const UserPost = ({ post }: UserPostProps) => {
   };
 
   return (
-    <div onClick={handlePostClick} className="block cursor-pointer">
-      <Post editable={false}>
-        <Post.Header postId={id} avatar={avatar} name={name} createdAt={createdAt} />
-        <Post.Content title={title} content={content} />
-        <Post.Footer handleCommentClick={handlePostClick} />
-      </Post>
-    </div>
+    <Post postId={id} editable={false} onClick={handlePostClick}>
+      <Post.Header avatar={avatar} name={name} createdAt={createdAt} />
+      <Post.Content title={title} content={content} />
+      <Post.Footer handleCommentClick={handlePostClick} />
+    </Post>
   );
 };
 

@@ -11,25 +11,34 @@ export interface DropdownOption {
 
 interface DropdownProps {
   trigger: React.ReactNode;
+  onOpen?: () => void;
+  onClose?: () => void;
   options: DropdownOption[];
   className?: string;
 }
 
-const Dropdown = ({ trigger, options, className = "" }: DropdownProps) => {
+const Dropdown = ({ trigger, onOpen, onClose, options, className = "" }: DropdownProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  useClickOutside(dropdownRef, () => setIsOpen(false));
+  useClickOutside(dropdownRef, () => {
+    setIsOpen(false);
+    setTimeout(() => {
+      onClose?.();
+    }, 100);
+  });
 
   const handleOptionClick = (e: React.MouseEvent) => (option: DropdownOption) => {
     e.stopPropagation();
     option.onClick();
     setIsOpen(false);
+    onClose?.();
   };
 
   const handleToggleMenu = (e: React.MouseEvent) => {
     e.stopPropagation();
     setIsOpen(!isOpen);
+    return isOpen ? onClose?.() : onOpen?.();
   };
 
   return (

@@ -49,14 +49,9 @@ const PostView = () => {
         <FaArrowLeft />
       </Button>
 
-      <Post enableHover={false}>
-        <Post.Header
-          postId={post.id}
-          avatar={post.avatar}
-          name={post.name}
-          createdAt={post.createdAt}
-        />
-        <Post.Content postId={post.id} title={post.title} content={post.content} />
+      <Post postId={post.id} enableHover={false}>
+        <Post.Header avatar={post.avatar} name={post.name} createdAt={post.createdAt} />
+        <Post.Content title={post.title} content={post.content} />
         <Post.Footer />
       </Post>
 

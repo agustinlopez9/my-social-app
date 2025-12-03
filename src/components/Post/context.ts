@@ -1,6 +1,9 @@
 import { createContext, useContext } from "react";
 
 export interface PostContextValue {
+  postId?: string;
+  dropdownOpen: boolean;
+  setDropdownOpen: (open: boolean) => void;
   isEditing: boolean;
   setIsEditing: (isEditing: boolean) => void;
   editable: boolean;

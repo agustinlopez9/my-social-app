@@ -30,7 +30,7 @@ const PostsList = () => {
   return (
     <>
       {posts?.map((post) => (
-        <UserPost post={post} />
+        <UserPost key={post.id} post={post} />
       ))}
     </>
   );

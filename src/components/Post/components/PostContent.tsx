@@ -8,13 +8,12 @@ import PostFormFields from "components/PostForm";
 import { validationSchema, type EditPostFormData } from "../utils";
 
 interface PostContentProps {
-  postId?: string;
   title: string;
   content: string;
 }
 
-const PostContent = ({ postId, title, content }: PostContentProps) => {
-  const { isEditing, setIsEditing } = usePostContext();
+const PostContent = ({ title, content }: PostContentProps) => {
+  const { postId, isEditing, setIsEditing } = usePostContext();
   const { t } = useTranslation();
   const editPost = useEditPost();
 

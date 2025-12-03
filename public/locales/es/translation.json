@@ -72,7 +72,8 @@
       "titleMaxLength": "El título no puede exceder los 100 caracteres",
       "contentRequired": "El contenido de la publicación es obligatorio",
       "contentMinLength": "La publicación debe tener al menos 1 carácter",
-      "contentMaxLength": "La publicación no puede exceder los 500 caracteres"
+      "contentMaxLength": "La publicación no puede exceder los 500 caracteres",
+      "nameMaxLength": "El nombre no puede exceder los 50 caracteres"
     }
   },
   "comments": {
@@ -97,7 +98,9 @@
     "validation": {
       "contentRequired": "El contenido del comentario es obligatorio",
       "contentMinLength": "El comentario debe tener al menos 1 carácter",
-      "contentMaxLength": "El comentario no puede exceder los 300 caracteres"
+      "contentMaxLength": "El comentario no puede exceder los 300 caracteres",
+      "nameMaxLength": "El nombre no puede exceder los 50 caracteres",
+      "postIdRequired": "El ID de publicación es obligatorio"
     }
   },
   "notFound": {

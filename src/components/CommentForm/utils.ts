@@ -1,20 +1,21 @@
 import * as yup from "yup";
+import type { CreateCommentFormData, EditCommentFormData } from "./types";
 
-export type { CommentFormData } from "components/CommentForm/types";
+export const createValidationSchema: yup.ObjectSchema<CreateCommentFormData> = yup.object({
+  avatar: yup.string().required(),
+  name: yup.string().required().max(50, "comments.validation.nameMaxLength").trim(),
+  createdAt: yup.string().required(),
+  content: yup
+    .string()
+    .required("comments.validation.contentRequired")
+    .min(1, "comments.validation.contentMinLength")
+    .max(300, "comments.validation.contentMaxLength")
+    .trim(),
+  postId: yup.string().required("comments.validation.postIdRequired"),
+  parentId: yup.string().nullable().required(),
+});
 
-export interface CreateEditCommentFormData {
-  avatar: string;
-  name: string;
-  createdAt: string;
-  content: string;
-  postId: string;
-  parentId: string | null;
-}
-
-export const validationSchema = yup.object({
-  avatar: yup.string().defined(),
-  name: yup.string().defined().max(50, "comments.validation.nameMaxLength").trim(),
-  createdAt: yup.string().defined(),
+export const editValidationSchema: yup.ObjectSchema<EditCommentFormData> = yup.object({
   content: yup
     .string()
     .required("comments.validation.contentRequired")
@@ -24,5 +25,3 @@ export const validationSchema = yup.object({
   postId: yup.string().required("comments.validation.postIdRequired"),
   parentId: yup.string().nullable().defined(),
 });
-
-export type CreateEditCommentValidated = yup.InferType<typeof validationSchema>;

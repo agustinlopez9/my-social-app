@@ -1,30 +1,32 @@
 import { useTranslation } from "react-i18next";
-import type { UseFormRegister, FieldErrors } from "react-hook-form";
+import type { UseFormRegister, FieldErrors, FieldPath } from "react-hook-form";
 import FormTextArea from "components/formComponents/FormTextArea";
 import Button from "components/ui/Button";
-import type { CommentFormData } from "./types";
+import type { CreateCommentFormData, EditCommentFormData } from "./types";
 
-interface CommentFormFieldsProps {
-  register: UseFormRegister<CommentFormData>;
-  errors: FieldErrors<CommentFormData>;
+type CommentFormType = CreateCommentFormData | EditCommentFormData;
+
+interface CommentFormFieldsProps<T extends CommentFormType> {
+  register: UseFormRegister<T>;
+  errors: FieldErrors<T>;
   handleCancel?: () => void;
   isSubmittingOrPending?: boolean;
 }
 
-const CommentFormFields = ({
+const CommentFormFields = <T extends CommentFormType>({
   register,
   errors,
   handleCancel,
   isSubmittingOrPending,
-}: CommentFormFieldsProps) => {
+}: CommentFormFieldsProps<T>) => {
   const { t } = useTranslation();
 
   return (
     <>
       <FormTextArea
-        {...register("content")}
+        {...register("content" as FieldPath<T>)}
         placeholder={t("comments.labels.placeholder")}
-        error={errors.content?.message ? t(errors.content.message) : undefined}
+        error={errors.content?.message ? t(errors.content.message as string) : undefined}
       />
       <div className="flex justify-end gap-2">
         {handleCancel && (

@@ -5,7 +5,8 @@ import toast from "react-hot-toast";
 import { useAuth } from "context/AuthContext";
 import { useCreateComment } from "hooks/comments/useCreateComment";
 import CommentFormFields from "components/CommentForm/CommentFormFields";
-import { validationSchema, type CreateEditCommentFormData } from "components/CommentForm/utils";
+import { createValidationSchema } from "components/CommentForm/utils";
+import type { CreateCommentFormData } from "components/CommentForm/types";
 
 interface CreateCommentFormProps {
   postId?: string;
@@ -31,11 +32,11 @@ const CreateCommentForm = ({
     handleSubmit,
     reset,
     formState: { errors, isSubmitting },
-  } = useForm<CreateEditCommentFormData>({
-    resolver: yupResolver(validationSchema),
+  } = useForm<CreateCommentFormData>({
+    resolver: yupResolver(createValidationSchema),
     reValidateMode: "onSubmit",
     defaultValues: {
-      postId: postId || undefined,
+      postId: postId || "",
       createdAt: new Date().toISOString(),
       name: user?.name || "",
       avatar: user?.avatar || "",
@@ -44,7 +45,7 @@ const CreateCommentForm = ({
     },
   });
 
-  const onSubmit = async (data: CreateEditCommentFormData) => {
+  const onSubmit = async (data: CreateCommentFormData) => {
     const { postId, ...restData } = data;
 
     try {
@@ -62,7 +63,7 @@ const CreateCommentForm = ({
       <p className="text-heading-sm text-primary mb-3 font-semibold">
         {isReply ? t("comments.labels.replyTitle") : t("comments.labels.createTitle")}
       </p>
-      <CommentFormFields
+      <CommentFormFields<CreateCommentFormData>
         register={register}
         errors={errors}
         handleCancel={onCancel}

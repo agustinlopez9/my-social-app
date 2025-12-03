@@ -4,7 +4,8 @@ import { useTranslation } from "react-i18next";
 import toast from "react-hot-toast";
 import { useEditComment } from "hooks/comments/useEditComment";
 import CommentFormFields from "components/CommentForm/CommentFormFields";
-import { validationSchema, type CreateEditCommentFormData } from "components/CommentForm/utils";
+import { editValidationSchema } from "components/CommentForm/utils";
+import type { EditCommentFormData } from "components/CommentForm/types";
 
 interface EditCommentFormProps {
   postId: string;
@@ -31,8 +32,8 @@ const EditCommentForm = ({
     handleSubmit,
     reset,
     formState: { errors, isSubmitting },
-  } = useForm<CreateEditCommentFormData>({
-    resolver: yupResolver(validationSchema),
+  } = useForm<EditCommentFormData>({
+    resolver: yupResolver(editValidationSchema),
     reValidateMode: "onSubmit",
     defaultValues: {
       postId,
@@ -41,7 +42,7 @@ const EditCommentForm = ({
     },
   });
 
-  const onSubmit = async (data: CreateEditCommentFormData) => {
+  const onSubmit = async (data: EditCommentFormData) => {
     try {
       await editComment.mutateAsync({ postId, commentId, content: data.content });
       toast.success(t("comments.copy.edited"));
@@ -58,7 +59,7 @@ const EditCommentForm = ({
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="mt-2 space-y-3">
-      <CommentFormFields
+      <CommentFormFields<EditCommentFormData>
         register={register}
         errors={errors}
         handleCancel={handleCancel}

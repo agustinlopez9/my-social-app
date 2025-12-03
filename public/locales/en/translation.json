@@ -72,7 +72,8 @@
       "titleMaxLength": "Title cannot exceed 100 characters",
       "contentRequired": "Post content is required",
       "contentMinLength": "Post must have at least 1 character",
-      "contentMaxLength": "Post cannot exceed 500 characters"
+      "contentMaxLength": "Post cannot exceed 500 characters",
+      "nameMaxLength": "Name cannot exceed 50 characters"
     }
   },
   "comments": {
@@ -97,7 +98,9 @@
     "validation": {
       "contentRequired": "Comment content is required",
       "contentMinLength": "Comment must have at least 1 character",
-      "contentMaxLength": "Comment cannot exceed 300 characters"
+      "contentMaxLength": "Comment cannot exceed 300 characters",
+      "nameMaxLength": "Name cannot exceed 50 characters",
+      "postIdRequired": "Post ID is required"
     }
   },
   "notFound": {
